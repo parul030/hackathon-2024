@@ -13,7 +13,7 @@ function Landing() {
 
     <div className='text-left mt-[55px]'><button className='rounded-[10px] capitalize bg-[#36C3D6] w-[165px] text-white  text-base font-semibold py-[17px] px-[26px]'>start investing</button></div>
     
-    <img src = {'/public/lendingRIbbon.png'} alt="lendingRIbbon" />
+    <img src ="imgs/lendingRIbbon.png" alt="lendingRIbbon" />
     </div>
     
    
