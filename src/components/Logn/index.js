@@ -6,7 +6,7 @@ const Login = () => {
   return (
     <Grid container spacing={2}>
       <Grid item xs={8}>
-        <div><Logo/></div>
+        <div><span>Become an investor</span></div>
       </Grid>
       <Grid item xs={4}>
         <div>xs=4</div>
