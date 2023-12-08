@@ -2,52 +2,21 @@ import React from 'react'
 import { Box, Typography, TextField, Button } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
 import { ValidationRules } from '../../constants/ValidationRules'
-import dayjs from 'dayjs'
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
-import axios from 'axios'
 
-const KYC = ({ handleNext, handleBack, investorData, setInvestorData }) => {
+const IdentificationsDetails = ({ handleNext, handleBack }) => {
   const { formState, handleSubmit, control } = useForm({
     mode: 'onBlur',
   })
 
   const { errors } = formState
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     console.log(data)
-    debugger
-    let newData = {}
-    if (investorData) {
-      newData = { ...investorData }
-    }
-    newData = { ...newData, kycDetails: data }
-    setInvestorData(newData)
-    const resp = await axios.post(
-      `https://finease-b5044a79ab8d.herokuapp.com/api/v1/member/update`,
-      {
-        fullname: newData.personalDetails.fullName,
-        mobile_no: newData.personalDetails.mobileNo,
-        email: newData.contactDetails.emailId,
-        password: newData.contactDetails.password,
-        date_of_birth: dayjs(newData.kycDetails.dob).format('YYYY-MM-DD'),
-        gender: newData.personalDetails.gender,
-        marital_status: newData.personalDetails.maritialStatus,
-        // address: '123 Main St',
-        pan: newData.kycDetails.pan,
-        aadhaar: newData.kycDetails.aadhaar,
-        // employment_company_name: 'ABC Inc',
-        // employment_company_type: 'Tech',
-        // employment_total_exp: '5',
-        // employment_annual_salary: '100000',
-        // employment_receive_salary_type: 'Bank',
-        role: 'Lender',
-      }
-    )
-    console.log(resp)
-    // handleNext()
+    handleNext()
   }
   return (
     <Box
@@ -56,7 +25,7 @@ const KYC = ({ handleNext, handleBack, investorData, setInvestorData }) => {
       className='flex flex-col'
     >
       <Typography variant='h3' className='text-center font-bold mb-4'>
-        KYC
+        Identifications Details
       </Typography>
       <Box className='flex flex-col gap-4'>
         <Box>
@@ -119,22 +88,12 @@ const KYC = ({ handleNext, handleBack, investorData, setInvestorData }) => {
         )}
         <Controller
           control={control}
-          name='aadhaar'
-          rules={{
-            required: {
-              value: true,
-              message: 'This field cannot be left blank',
-            },
-            pattern: {
-              value: ValidationRules.alphanumericCharacters,
-              message: 'Please enter the correct Password.',
-            },
-          }}
+          name='addressLine1'
           render={({ field: { value, onChange, onBlur } }) => (
             <TextField
-              label='Aadhaar No.'
+              label='Address Line 1.'
               variant='outlined'
-              name='aadhaar'
+              name='addressLine1'
               value={value}
               onChange={onChange}
               onBlur={onBlur}
@@ -142,11 +101,51 @@ const KYC = ({ handleNext, handleBack, investorData, setInvestorData }) => {
             />
           )}
         />
-        {errors.aadhaar && (
-          <Typography className='text-red-400 text-sm'>
-            {errors.aadhaar.message}
-          </Typography>
-        )}
+        <Controller
+          control={control}
+          name='addressLine2'
+          render={({ field: { value, onChange, onBlur } }) => (
+            <TextField
+              label='Address Line 2.'
+              variant='outlined'
+              name='addressLine2'
+              value={value}
+              onChange={onChange}
+              onBlur={onBlur}
+              className='w-full'
+            />
+          )}
+        />
+        <Controller
+          control={control}
+          name='city'
+          render={({ field: { value, onChange, onBlur } }) => (
+            <TextField
+              label='City.'
+              variant='outlined'
+              name='city'
+              value={value}
+              onChange={onChange}
+              onBlur={onBlur}
+              className='w-full'
+            />
+          )}
+        />
+        <Controller
+          control={control}
+          name='pincode'
+          render={({ field: { value, onChange, onBlur } }) => (
+            <TextField
+              label='Pincode.'
+              variant='outlined'
+              name='pincode'
+              value={value}
+              onChange={onChange}
+              onBlur={onBlur}
+              className='w-full'
+            />
+          )}
+        />
       </Box>
       <Button
         variant='contained'
@@ -170,4 +169,4 @@ const KYC = ({ handleNext, handleBack, investorData, setInvestorData }) => {
   )
 }
 
-export default KYC
+export default IdentificationsDetails

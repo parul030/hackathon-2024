@@ -9,19 +9,36 @@ import Header from '../Common/header'
 
 const Investor = () => {
   const [activeStep, setActiveStep] = useState(0)
+  const [investorData, setInvestorData] = useState()
 
   const resolveActiveScreen = () => {
     switch (activeStep) {
       case 0:
         return (
-          <ContactDetails handleNext={handleNext} handleBack={handleBack} />
+          <ContactDetails
+            handleNext={handleNext}
+            handleBack={handleBack}
+            investorData={investorData}
+            setInvestorData={setInvestorData}
+          />
         )
       case 1:
         return (
-          <PersonalDetails handleNext={handleNext} handleBack={handleBack} />
+          <PersonalDetails
+            handleNext={handleNext}
+            handleBack={handleBack}
+            investorData={investorData}
+            setInvestorData={setInvestorData}
+          />
         )
       case 2:
-        return <KYC />
+        return (
+          <KYC
+            investorData={investorData}
+            setInvestorData={setInvestorData}
+            handleBack={handleBack}
+          />
+        )
       default:
         break
     }

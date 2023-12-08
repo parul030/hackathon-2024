@@ -9,7 +9,12 @@ import {
   TransgenderOutlined,
 } from '@mui/icons-material'
 
-const PersonalDetails = ({ handleNext, handleBack }) => {
+const PersonalDetails = ({
+  handleNext,
+  handleBack,
+  investorData,
+  setInvestorData,
+}) => {
   const { formState, handleSubmit, control } = useForm({
     mode: 'onBlur',
   })
@@ -19,6 +24,20 @@ const PersonalDetails = ({ handleNext, handleBack }) => {
   const { errors } = formState
 
   const onSubmit = (data) => {
+    console.log(data)
+    let newData = {}
+    if (investorData) {
+      newData = { ...investorData }
+    }
+    newData = {
+      ...newData,
+      personalDetails: {
+        ...data,
+        maritialStatus: selectedMaritialStatus,
+        gender: selectedGender,
+      },
+    }
+    setInvestorData(newData)
     handleNext()
   }
   return (
@@ -27,10 +46,45 @@ const PersonalDetails = ({ handleNext, handleBack }) => {
       onSubmit={handleSubmit(onSubmit)}
       className='flex flex-col'
     >
-      <div variant='h3' className='text-left text-[20px] mt-[46px]  font-light text-[#35354D] font-[roboto] mb-4'>
+      <div
+        variant='h3'
+        className='text-left text-[20px] mt-[46px]  font-light text-[#35354D] font-[roboto] mb-4'
+      >
         Personal Details
       </div>
       <Box className='flex mt-[34px] flex-col gap-4'>
+        <Box>
+          <Controller
+            control={control}
+            name='mobileNo'
+            rules={{
+              required: {
+                value: true,
+                message: 'This field cannot be left blank',
+              },
+              pattern: {
+                value: ValidationRules.mobileNumber,
+                message: 'Please enter the correct Mobile Number.',
+              },
+            }}
+            render={({ field: { value, onChange, onBlur } }) => (
+              <TextField
+                label='Mobile No.'
+                variant='outlined'
+                name='mobileNo'
+                value={value}
+                onChange={onChange}
+                onBlur={onBlur}
+                className='w-full'
+              />
+            )}
+          />
+          {errors.mobileNo && (
+            <Typography className='text-red-400 text-sm'>
+              {errors.mobileNo.message}
+            </Typography>
+          )}
+        </Box>
         <Box>
           <Controller
             control={control}

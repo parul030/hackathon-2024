@@ -6,29 +6,69 @@ import Header from '../Common/header'
 import ContactDetails from '../Investor/contactDetails'
 import PersonalDetails from '../Investor/personalDetails'
 import LoanDetails from './LoanDetails'
+import IdentificationsDetails from './IdentificationsDetails'
+import EmployementDetails from './EmployementDetails'
 
 const Borrower = () => {
-  const [activeStep, setActiveStep] = useState(2)
+  const [activeStep, setActiveStep] = useState(0)
+  const [investorData, setInvestorData] = useState()
 
   const resolveActiveScreen = () => {
     switch (activeStep) {
       case 0:
         return (
-          <ContactDetails handleNext={handleNext} handleBack={handleBack} />
+          <ContactDetails
+            handleNext={handleNext}
+            handleBack={handleBack}
+            investorData={investorData}
+            setInvestorData={setInvestorData}
+            role='Borrower'
+          />
         )
       case 1:
         return (
-          <PersonalDetails handleNext={handleNext} handleBack={handleBack} />
+          <PersonalDetails
+            handleNext={handleNext}
+            handleBack={handleBack}
+            investorData={investorData}
+            setInvestorData={setInvestorData}
+          />
         )
       case 2:
-        return <LoanDetails handleNext={handleNext} handleBack={handleBack} />
+        return (
+          <IdentificationsDetails
+            handleNext={handleNext}
+            handleBack={handleBack}
+            investorData={investorData}
+            setInvestorData={setInvestorData}
+          />
+        )
+      case 3:
+        return (
+          <EmployementDetails
+            handleNext={handleNext}
+            handleBack={handleBack}
+            investorData={investorData}
+            setInvestorData={setInvestorData}
+          />
+        )
+      case 4:
+        return (
+          <LoanDetails
+            handleNext={handleNext}
+            handleBack={handleBack}
+            investorData={investorData}
+            setInvestorData={setInvestorData}
+          />
+        )
+
       default:
         break
     }
   }
 
   const handleNext = () => {
-    if (activeStep < 6) {
+    if (activeStep < 5) {
       setActiveStep((activeStep) => activeStep + 1)
     }
   }
@@ -69,7 +109,7 @@ const Borrower = () => {
           </Grid>
           <Grid item xs={7}>
             <div className='bg-white rounded-2xl mb-6 px-11 py-6 shadow-md'>
-              <CustomizedSteppers count={6} activeStep={activeStep} />
+              <CustomizedSteppers count={5} activeStep={activeStep} />
               {resolveActiveScreen()}
             </div>
           </Grid>

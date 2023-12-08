@@ -7,6 +7,7 @@ import Investor from './components/Investor';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Borrower from './components/Borrower';
+import { CookiesProvider } from "react-cookie";
 
 
 export default function App() {
@@ -28,7 +29,9 @@ export default function App() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <CookiesProvider>
+      <App />
+    </CookiesProvider>
   </React.StrictMode>
 );
 

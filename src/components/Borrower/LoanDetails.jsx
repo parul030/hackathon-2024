@@ -4,17 +4,53 @@ import { Controller, useForm } from 'react-hook-form'
 import { ValidationRules } from '../../constants/ValidationRules'
 import CustomizedSlider from '../Common/slider'
 import { currencyFormat } from '../Utils'
+import OvalOptions from '../Common/ovalOptions'
+import SquareOptions from '../Common/squareOptions'
 
-const LoadDetails = ({ handleNext, handleBack }) => {
+const loanPurposes = [
+  { label: 'credit card refinancing' },
+  { label: 'debt consolidation' },
+  { label: 'home improvement' },
+  { label: 'medical expenses' },
+  { label: 'home buying' },
+  { label: 'car financing' },
+  { label: 'green loan' },
+  { label: 'business' },
+  { label: 'vacation' },
+  { label: 'moving & relocation' },
+  { label: 'major purchases' },
+]
+
+const LoanDetails = ({
+  handleNext,
+  handleBack,
+  investorData,
+  setInvestorData,
+}) => {
   const { formState, handleSubmit, control } = useForm({
     mode: 'onBlur',
   })
   const [loanValue, setLoanValue] = useState(currencyFormat(100000))
+  const [tenure, setTenure] = useState()
+  const [loanPurpose, setLoanPurpose] = useState()
 
   const { errors } = formState
 
+  const getAgeArray = () => {
+    return [...Array(30)].map((item, i) => {
+      return { label: i + 1 }
+    })
+  }
+
   const onSubmit = (data) => {
     console.log(data)
+    let newData = {}
+    if (investorData) {
+      newData = { ...investorData }
+    }
+    newData = { ...newData, loanDetails: { ...data, tenure, loanPurposes } }
+    setInvestorData(newData)
+
     handleNext()
   }
   return (
@@ -48,38 +84,18 @@ const LoadDetails = ({ handleNext, handleBack }) => {
             },
           ]}
         />
-        <Box>
-          <Controller
-            control={control}
-            name='fullName'
-            rules={{
-              required: {
-                value: true,
-                message: 'This field cannot be left blank',
-              },
-              pattern: {
-                value: ValidationRules.firstName,
-                message: 'Please enter the correct name',
-              },
-            }}
-            render={({ field: { value, onChange, onBlur } }) => (
-              <TextField
-                label='Full Name.'
-                variant='outlined'
-                name='fullName'
-                value={value}
-                onChange={onChange}
-                onBlur={onBlur}
-                className='w-full'
-              />
-            )}
-          />
-          {errors.fullName && (
-            <Typography className='text-red-400 text-sm'>
-              {errors.fullName.message}
-            </Typography>
-          )}
-        </Box>
+        <OvalOptions
+          options={getAgeArray()}
+          selectedOption={tenure}
+          handleOptionChange={setTenure}
+          title={'Loan Tenure'}
+        />
+        <SquareOptions
+          options={loanPurposes}
+          selectedOption={loanPurpose}
+          handleOptionChange={setLoanPurpose}
+          title={'Loan Option'}
+        />
       </Box>
       <Box className='flex justify-between mt-4'>
         <Button
@@ -103,4 +119,4 @@ const LoadDetails = ({ handleNext, handleBack }) => {
   )
 }
 
-export default LoadDetails
+export default LoanDetails
