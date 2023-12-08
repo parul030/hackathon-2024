@@ -20,10 +20,10 @@ const PersonalDetails = () => {
       onSubmit={handleSubmit(onSubmit)}
       className='flex flex-col'
     >
-      <Typography variant='h3' className='text-center font-bold mb-4'>
+      <div variant='h3' className='text-left text-[20px] mt-[46px]  font-light text-[#35354D] font-[roboto] mb-4'>
         Personal Details
-      </Typography>
-      <Box className='flex flex-col gap-4'>
+      </div>
+      <Box className='flex mt-[34px] flex-col gap-4'>
         <Box>
           <Controller
             control={control}
