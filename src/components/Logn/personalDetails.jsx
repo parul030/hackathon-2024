@@ -1,18 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Typography, TextField, Button } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
 import { ValidationRules } from '../../constants/ValidationRules'
 import RadioOptions from '../Common/radioOptions'
+import {
+  MaleOutlined,
+  FemaleOutlined,
+  TransgenderOutlined,
+} from '@mui/icons-material'
 
-const PersonalDetails = () => {
+const PersonalDetails = ({ handleNext, handleBack }) => {
   const { formState, handleSubmit, control } = useForm({
     mode: 'onBlur',
   })
+  const [selectedGender, setSelectedGender] = useState()
+  const [selectedMaritialStatus, setSelectedMaritialStatus] = useState()
 
   const { errors } = formState
 
   const onSubmit = (data) => {
     console.log(data)
+    handleNext()
   }
   return (
     <Box
@@ -56,9 +64,37 @@ const PersonalDetails = () => {
             </Typography>
           )}
         </Box>
-        <RadioOptions/>
+        <RadioOptions
+          options={[
+            { label: 'Male', icon: <MaleOutlined /> },
+            { label: 'Female', icon: <FemaleOutlined /> },
+            { label: 'Other', icon: <TransgenderOutlined /> },
+          ]}
+          selectedOption={selectedGender}
+          title={'Gender'}
+          handleOptionChange={setSelectedGender}
+        />
+        <RadioOptions
+          options={[
+            { label: 'Married', icon: <MaleOutlined /> },
+            { label: 'unmarried', icon: <FemaleOutlined /> },
+            { label: 'divorced', icon: <TransgenderOutlined /> },
+            { label: 'Widowed', icon: <TransgenderOutlined /> },
+          ]}
+          selectedOption={selectedMaritialStatus}
+          title={'Marital Status'}
+          handleOptionChange={setSelectedMaritialStatus}
+        />
       </Box>
-      <Box className='flex justify-end mt-4'>
+      <Box className='flex justify-between mt-4'>
+        <Button
+          variant='contained'
+          onClick={handleBack}
+          disabled={false}
+          className='w-8 mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded mr-0'
+        >
+          Back
+        </Button>
         <Button
           variant='contained'
           type='submit'

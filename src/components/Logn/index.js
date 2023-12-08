@@ -1,11 +1,43 @@
 import { Grid } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import { KeyboardArrowLeft } from '@mui/icons-material'
 import CustomizedSteppers from '../Common/stepper'
 import ContactDetails from './contactDetails'
 import PersonalDetails from './personalDetails'
+import KYC from './kyc'
 
 const Login = () => {
+  const [activeStep, setActiveStep] = useState(0)
+
+  const resolveActiveScreen = () => {
+    switch (activeStep) {
+      case 0:
+        return (
+          <ContactDetails handleNext={handleNext} handleBack={handleBack} />
+        )
+      case 1:
+        return (
+          <PersonalDetails handleNext={handleNext} handleBack={handleBack} />
+        )
+      case 2:
+        return <KYC />
+      default:
+        break
+    }
+  }
+
+  const handleNext = () => {
+    if (activeStep < 3) {
+      setActiveStep((activeStep) => activeStep + 1)
+    }
+  }
+
+  const handleBack = () => {
+    if (activeStep < 3) {
+      setActiveStep((activeStep) => activeStep - 1)
+    }
+  }
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={5}>
@@ -19,9 +51,8 @@ const Login = () => {
       </Grid>
       <Grid item xs={7}>
         <div className='bg-white rounded-2xl px-11 py-6 shadow-md'>
-          <CustomizedSteppers count={4} activeStep={2} />
-          {/* <ContactDetails /> */}
-          <PersonalDetails />
+          <CustomizedSteppers count={3} activeStep={activeStep} />
+          {resolveActiveScreen()}
         </div>
       </Grid>
     </Grid>
