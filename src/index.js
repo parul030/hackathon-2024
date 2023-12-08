@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Home from './Home';
 import  Dashboard from './components/dashboard/Dashboard'
-import Borrower from './components/Borrower';
+import Borrower from './components/Investor';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
