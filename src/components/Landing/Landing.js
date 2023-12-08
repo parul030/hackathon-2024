@@ -1,5 +1,6 @@
 import React from 'react'
 import Elevate from './Elevate';
+import OpenAccount from './OpenAccount'
 
 
 function Landing() {
@@ -37,6 +38,7 @@ function Landing() {
     </div>
     </div>
     <Elevate/>
+    <OpenAccount/>
     </>
   );
 }
