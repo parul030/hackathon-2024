@@ -1,6 +1,10 @@
 import React from 'react'
 import Header from '../Common/header';
 import LinearDeterminate from './progressBar'
+import Proposal from './Proposal'
+import CustomizeInvestment from './customizeInvestment'
+import Packets from './Packets'
+import Disbursements from './disbursements';
 
 function Dashboard() {
   return (
@@ -50,15 +54,15 @@ function Dashboard() {
             <div className='bg-[#FFF1DF] mt-[18px]  rounded-[20px] py-[18px] px-[64px]  flex justify-between w-full capitalize'>
               <div className='border-r border-r-[white] pr-[85px]'>
               <div className='text-base font-normal text-[#5D5D70]'>upcoming EMIs</div>
-              <div>₹ 50,000</div>
+              <div className='mt-[7px]'>₹ 50,000</div>
               </div>
               <div className='border-r border-r-[white] pr-[85px]'>
               <div  className='text-base font-normal text-[#5D5D70]'>EMIs received</div>
-              <div>₹ 50,000</div>
+              <div className='mt-[7px]'>₹ 50,000</div>
               </div>
               <div>
               <div  className='text-base font-normal text-[#5D5D70]'>EMIs pending</div>
-              <div>₹ 50,000</div>
+              <div className='mt-[7px]'>₹ 50,000</div>
               </div>
               </div>
         
@@ -68,30 +72,30 @@ function Dashboard() {
             <div className='flex justify-between'>
               <div>
                 <p className='text-sm text-[#5D5D70] font-normal'>Borrower’s name</p>
-                <p className='text-base font-normal'>Rakshit Verma</p>
+                <p className='text-base mt-[7px] font-normal'>Rakshit Verma</p>
               </div>
               <div>
                 <p className='text-sm text-[#5D5D70]'>app id</p>
-                <p className='text-base font-normal'>123456</p>
+                <p className='text-base mt-[7px]  font-normal'>123456</p>
               </div>
             </div>
 
             <div className='flex justify-between mt-[15px] capitalize'>
               <div>
                 <p className='text-sm text-[#5D5D70]'>amount</p>
-                <p className='text-base font-normal'>₹ 25,000</p>
+                <p className='text-base  mt-[7px] font-normal'>₹ 25,000</p>
               </div>
               <div>
                 <p className='text-sm text-[#5D5D70]'>Tenure</p>
-                <p className='text-base font-normal'>₹ 25,000</p>
+                <p className='text-base  mt-[7px] font-normal'>1yr 6months</p>
               </div>
               <div>
                 <p  className='text-sm text-[#5D5D70]'>EMI amount</p>
-                <p  className='text-base font-normal'>₹ 25,000</p>
+                <p  className='text-base  mt-[7px] font-normal'>1yr 6months</p>
               </div>
               <div>
                 <p className='text-sm text-[#5D5D70]' >date</p>
-                <p className='text-base font-normal'>₹ 25,000</p>
+                <p className='text-base  mt-[7px] font-normal'>28/12/2023</p>
               </div>
             </div>
 
@@ -101,30 +105,30 @@ function Dashboard() {
             <div className='flex justify-between'>
               <div>
                 <p className='text-sm text-[#5D5D70] font-normal'>Borrower’s name</p>
-                <p className='text-base font-normal'>Rakshit Verma</p>
+                <p className='text-base mt-[7px]  font-normal'>Rakshit Verma</p>
               </div>
               <div>
                 <p className='text-sm text-[#5D5D70]'>app id</p>
-                <p className='text-base font-normal'>123456</p>
+                <p className='text-base mt-[7px] font-normal'>123456</p>
               </div>
             </div>
 
             <div className='flex justify-between mt-[15px] capitalize'>
               <div>
                 <p className='text-sm text-[#5D5D70]'>amount</p>
-                <p className='text-base font-normal'>₹ 25,000</p>
+                <p className='text-base  mt-[7px] font-normal'>₹ 25,000</p>
               </div>
               <div>
                 <p className='text-sm text-[#5D5D70]'>Tenure</p>
-                <p className='text-base font-normal'>₹ 25,000</p>
+                <p className='text-base  mt-[7px] font-normal'>1yr 6months</p>
               </div>
               <div>
                 <p  className='text-sm text-[#5D5D70]'>EMI amount</p>
-                <p  className='text-base font-normal'>₹ 25,000</p>
+                <p  className='text-base  mt-[7px] font-normal'>1yr 6months</p>
               </div>
               <div>
                 <p className='text-sm text-[#5D5D70]' >date</p>
-                <p className='text-base font-normal'>₹ 25,000</p>
+                <p className='text-base  mt-[7px] font-normal'>28/12/2023</p>
               </div>
             </div>
 
@@ -132,6 +136,10 @@ function Dashboard() {
           
         </div>
       </div>
+    <Proposal />
+    <CustomizeInvestment/>
+    <Packets/>
+    <Disbursements/>
     </div>
     </div>
   );

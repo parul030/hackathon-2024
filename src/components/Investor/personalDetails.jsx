@@ -19,7 +19,6 @@ const PersonalDetails = ({ handleNext, handleBack }) => {
   const { errors } = formState
 
   const onSubmit = (data) => {
-    console.log(data)
     handleNext()
   }
   return (
