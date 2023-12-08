@@ -44,7 +44,7 @@ const LoanDetails = ({
 
   const onSubmit = async (data) => {
     console.log(data)
-    debugger
+    
     let newData = {}
     if (investorData) {
       newData = { ...investorData }

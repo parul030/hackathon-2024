@@ -23,7 +23,7 @@ const ContactDetails = ({
 
   const onSubmit = async (data) => {
     console.log(data)
-    debugger
+    
     try {
       const resp = await axios.post(
         `https://finease-b5044a79ab8d.herokuapp.com/${
