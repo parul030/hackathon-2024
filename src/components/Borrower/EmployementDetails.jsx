@@ -117,8 +117,8 @@ const EmployementDetails = ({
         employment_company_name: newData.empDetails.companyName,
         employment_company_type: newData.empDetails.companyType,
         employment_total_exp: newData.empDetails.expInYrs,
-        // employment_annual_salary: Number(newData.empDetails.monthlyIncome) * 12,
-        // employment_receive_salary_type: recieveSalary,
+        employment_annual_salary: String(Number(newData.empDetails.monthlyIncome) * 12),
+        employment_receive_salary_type: recieveSalary,
         role: 'Borrower',
       }
     )
