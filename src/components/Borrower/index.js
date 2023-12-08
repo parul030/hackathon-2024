@@ -7,9 +7,10 @@ import ContactDetails from '../Investor/contactDetails'
 import PersonalDetails from '../Investor/personalDetails'
 import LoanDetails from './LoanDetails'
 import IdentificationsDetails from './IdentificationsDetails'
+import EmployementDetails from './EmployementDetails'
 
 const Borrower = () => {
-  const [activeStep, setActiveStep] = useState(3)
+  const [activeStep, setActiveStep] = useState(4)
 
   const resolveActiveScreen = () => {
     switch (activeStep) {
@@ -29,6 +30,10 @@ const Borrower = () => {
             handleNext={handleNext}
             handleBack={handleBack}
           />
+        )
+      case 4:
+        return (
+          <EmployementDetails handleNext={handleNext} handleBack={handleBack} />
         )
 
       default:
@@ -78,7 +83,7 @@ const Borrower = () => {
           </Grid>
           <Grid item xs={7}>
             <div className='bg-white rounded-2xl mb-6 px-11 py-6 shadow-md'>
-              <CustomizedSteppers count={6} activeStep={activeStep} />
+              <CustomizedSteppers count={5} activeStep={activeStep} />
               {resolveActiveScreen()}
             </div>
           </Grid>
