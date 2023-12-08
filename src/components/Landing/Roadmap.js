@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
-import { TextField ,Slider} from '@mui/material';
-import { Box } from '@mui/system';
 import MyChartComponent from './Chart'
+import CustomizedSlider from './slider'
+import { currencyFormat } from '../Utils'
 
 function Roadmap() { 
 
@@ -14,6 +14,7 @@ function Roadmap() {
       const [conservative , setConvervative] = useState(true)
       const [moderate , setModerate] = useState(false)
       const [aggressive , setAggresive] = useState(false)
+      const [loanValue, setLoanValue] = useState(currencyFormat(100000))
 
       const handleRiskData = (value) =>{
         if(value === "conservative"){
@@ -38,48 +39,41 @@ function Roadmap() {
     <p className=' text-left text-[60px] font-normal leading-normal w-[50%]'>A roadmap to sustainable wealth growth</p>
     <p className=' text-left w-[40%] text-lg font-normal'>Optimizing returns and managing risk along with the strategic advantage of diversifying your investment portfolio</p>
 
-    <div className='h-[716px] text-left rounded-[40px] pt-[93px] pl-[85px] bg-white shadow-v1 w-[598px] z-[1] mt-[63px]'>
+    <div className='h-[716px] text-left rounded-[40px] pt-[93px] pl-[85px] pr-[91px] bg-white shadow-v1 w-[598px] z-[1] mt-[63px]'>
         <div>
             <p className='capitalize text-[30px] text-[#35354D] font-light'>one-time deposit</p>
-        <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-        <TextField />
+       
      <div>
-        <Slider
-           aria-label="Temperature"
-           defaultValue={30}
-           step= {10000}
-           getAriaValueText={valuetext}
-           color="secondary" />
+       <CustomizedSlider
+          value={loanValue}
+          setValue={setLoanValue}
+          minRange={100000}
+          maxRange={50000000}
+          steps={100000}
+          title={''}
+          marks={
+            []
+            }
+        />
         </div>
-        </Box>
+       
     </div>
     <div>
         <div>
-     <p className='capitalize text-[30px] text-[#35354D] font-light'>monthly deposit</p>
-        <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-        <TextField />
+     <p className='capitalize text-[30px] mt-[62px] text-[#35354D] font-light'>monthly deposit</p>
+       
      <div>
-        <Slider
-           aria-label="Temperature"
-           defaultValue={30}
-           getAriaValueText={valuetext}
-           color="secondary" />
+       <CustomizedSlider
+          value={loanValue}
+          setValue={setLoanValue}
+          minRange={100000}
+          maxRange={50000000}
+          steps={100000}
+          title={''}
+          marks={[]}
+        />
         </div>
-        </Box>
+      
     </div>
     </div>
    <p className='text-[#35354D] text-[30px] font-light'> Risk Level</p>
