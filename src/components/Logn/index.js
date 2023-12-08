@@ -1,13 +1,18 @@
-import { Button } from '@mui/material'
+import { Grid } from '@mui/material'
 import React from 'react'
+import Logo from '../Common/logo'
 
-function Borrower() {
+const Login = () => {
   return (
-    <div className='flex justify-between'>
-      <div className='w-[683px] text-5xl  h-[768px] bg-[#35354D]'>Borrower</div>
-      <div>433</div>
-    </div>
+    <Grid container spacing={2}>
+      <Grid item xs={8}>
+        <div><Logo/></div>
+      </Grid>
+      <Grid item xs={4}>
+        <div>xs=4</div>
+      </Grid>
+    </Grid>
   )
 }
 
-export default Borrower
+export default Login
