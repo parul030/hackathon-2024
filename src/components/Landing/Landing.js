@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../Common/header';
 import Elevate from './Elevate';
 import OpenAccount from './OpenAccount'
+import Roadmap from './Roadmap'
 
 
 function Landing() {
@@ -11,7 +12,7 @@ function Landing() {
       <div className='absolute top-0 right-0 left-0'>
       <Header/>
       </div>
-    <div className="flex">
+    <div className="flex relative">
     <div className='w-[50%] h-[768px] pl-[70px]  bg-[#35354D]'>
 
 
@@ -24,7 +25,7 @@ function Landing() {
     <img src = {'imgs/landing.png'} alt="lendingRIbbon"  className='w-[243px] absolute bottom-0 h-[121px]'/>
     </div>
     
-    <div className='absolute top-[40%] left-[3%]'>
+    <div className='absolute top-[30%] left-[38%]'>
     <img src = {'imgs/lenderBorrower.png'} alt="lendingRIbbon"  className=' w-[352px] h-[350px]'/>
     </div>
    
@@ -39,6 +40,7 @@ function Landing() {
     </div>
     <Elevate/>
     <OpenAccount/>
+    <Roadmap/>
     </div>
     </>
   );
