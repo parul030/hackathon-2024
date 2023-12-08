@@ -13,7 +13,7 @@ export default function CustomizeInvestment() {
     </div>
     
   </div>
-  <div className='w-[60%] pt-[40px] text-center rounded-[30px] ml-[20px] bg-[#35354D] h-[531px] shadow-v2'>
+  <div className='w-[60%] pt-[40px] text-center rounded-[30px] ml-[20px] bg-[#35354D] shadow-v2'>
     <p className='text-[20px] font-semibold text-white capitalize'>customize your investments in 3 easy steps</p>
     <RiskStepper/>
 

@@ -12,8 +12,10 @@ import StepConnector, {
 
 const steps = ['choose risk type', 'select category', 'select borrower'];
 
-export default function HorizontalLinearStepper() {
-  const [activeStep, setActiveStep] = React.useState(0);
+export default function HorizontalLinearStepper(props) {
+
+  const {activeStep} = props
+  // const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState();
 
   const isStepOptional = (step) => {
@@ -23,23 +25,6 @@ export default function HorizontalLinearStepper() {
   const isStepSkipped = (step) => {
     return skipped?.has(step);
   };
-
-  const handleNext = () => {
-    let newSkipped = skipped;
-    if (isStepSkipped(activeStep)) {
-      newSkipped = new Set(newSkipped.values());
-      newSkipped.delete(activeStep);
-    }
-
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped(newSkipped);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
- 
 
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
