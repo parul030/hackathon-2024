@@ -3,9 +3,10 @@ import Slider from '@mui/material/Slider'
 import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import { Box, TextField } from '@mui/material'
+import { currencyFormat } from '../Utils'
 
 const PrettoSlider = styled(Slider)({
-  color: '#52af77',
+  color: '#36C3D6',
   height: 8,
   '& .MuiSlider-track': {
     border: 'none',
@@ -30,7 +31,7 @@ const PrettoSlider = styled(Slider)({
     width: 0,
     height: 0,
     borderRadius: '50% 50% 50% 0',
-    backgroundColor: '#52af77',
+    backgroundColor: '#36C3D6',
     transformOrigin: 'bottom left',
     transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
     '&:before': { display: 'none' },
@@ -47,13 +48,10 @@ export default function CustomizedSlider({
   marks,
   value,
   setValue,
+  title,
 }) {
   const convertToNumber = (stringNum) => {
     return Number(stringNum.replace(/,/g, ''))
-  }
-
-  const currencyFormat = (num) => {
-    return num.toLocaleString('en-IN')
   }
 
   const handleSetValue = (stringValue) => {
@@ -71,17 +69,16 @@ export default function CustomizedSlider({
 
   const handleBlur = () => {
     if (convertToNumber(value) < minRange) {
-      handleSetValue(minRange);
+      handleSetValue(minRange)
     } else if (convertToNumber(value) > maxRange) {
-      handleSetValue(maxRange);
+      handleSetValue(maxRange)
     }
-  };
+  }
 
   return (
     <Box>
-      <Typography gutterBottom>pretto.fr</Typography>
       <TextField
-        label='Full Name.'
+        label={title}
         variant='outlined'
         name='fullName'
         value={value}

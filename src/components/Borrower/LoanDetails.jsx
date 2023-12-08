@@ -3,13 +3,13 @@ import { Box, Typography, TextField, Button } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
 import { ValidationRules } from '../../constants/ValidationRules'
 import CustomizedSlider from '../Common/slider'
+import { currencyFormat } from '../Utils'
 
 const LoadDetails = ({ handleNext, handleBack }) => {
   const { formState, handleSubmit, control } = useForm({
     mode: 'onBlur',
   })
-  const [selectedGender, setSelectedGender] = useState()
-  const [selectedMaritialStatus, setSelectedMaritialStatus] = useState()
+  const [loanValue, setLoanValue] = useState(currencyFormat(100000))
 
   const { errors } = formState
 
@@ -23,11 +23,31 @@ const LoadDetails = ({ handleNext, handleBack }) => {
       onSubmit={handleSubmit(onSubmit)}
       className='flex flex-col'
     >
-      <div variant='h3' className='text-left text-[20px] mt-[46px]  font-light text-[#35354D] font-[roboto] mb-4'>
+      <div
+        variant='h3'
+        className='text-left text-[20px] mt-[46px]  font-light text-[#35354D] font-[roboto] mb-4'
+      >
         Personal Details
       </div>
       <Box className='flex mt-[34px] flex-col gap-4'>
-        <CustomizedSlider/>
+        <CustomizedSlider
+          value={loanValue}
+          setValue={setLoanValue}
+          minRange={100000}
+          maxRange={50000000}
+          steps={100000}
+          title={'Loan Amount'}
+          marks={[
+            {
+              value: 100000,
+              label: '₹1L',
+            },
+            {
+              value: 50000000,
+              label: '₹5Cr',
+            },
+          ]}
+        />
         <Box>
           <Controller
             control={control}
