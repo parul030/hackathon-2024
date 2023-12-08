@@ -6,6 +6,7 @@ import  Dashboard from './components/dashboard'
 import Investor from './components/Investor';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Borrower from './components/Borrower';
 
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
       <Routes>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="investor" element={<Investor />} />
+          <Route path="borrower" element={<Borrower />} />
           <Route path="/" element={<Home />}>
         
         </Route>
