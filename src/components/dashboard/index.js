@@ -5,7 +5,7 @@ function Dashboard() {
   return (
     <div>
     <div className="relative"> 
-     <div className='absolute top-0 right-0 left-0'>
+     <div>
       <Header />
     </div>
     </div>
