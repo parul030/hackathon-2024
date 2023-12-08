@@ -2,13 +2,13 @@ import { Grid } from '@mui/material'
 import React, { useState } from 'react'
 import { KeyboardArrowLeft } from '@mui/icons-material'
 import CustomizedSteppers from '../Common/stepper'
-import ContactDetails from './contactDetails'
-import PersonalDetails from './personalDetails'
-import KYC from './kyc'
 import Header from '../Common/header'
+import ContactDetails from '../Investor/contactDetails'
+import PersonalDetails from '../Investor/personalDetails'
+import LoanDetails from './LoanDetails'
 
-const Investor = () => {
-  const [activeStep, setActiveStep] = useState(0)
+const Borrower = () => {
+  const [activeStep, setActiveStep] = useState(2)
 
   const resolveActiveScreen = () => {
     switch (activeStep) {
@@ -21,14 +21,14 @@ const Investor = () => {
           <PersonalDetails handleNext={handleNext} handleBack={handleBack} />
         )
       case 2:
-        return <KYC />
+        return <LoanDetails handleNext={handleNext} handleBack={handleBack} />
       default:
         break
     }
   }
 
   const handleNext = () => {
-    if (activeStep < 3) {
+    if (activeStep < 6) {
       setActiveStep((activeStep) => activeStep + 1)
     }
   }
@@ -69,7 +69,7 @@ const Investor = () => {
           </Grid>
           <Grid item xs={7}>
             <div className='bg-white rounded-2xl mb-6 px-11 py-6 shadow-md'>
-              <CustomizedSteppers count={3} activeStep={activeStep} />
+              <CustomizedSteppers count={6} activeStep={activeStep} />
               {resolveActiveScreen()}
             </div>
           </Grid>
@@ -79,4 +79,4 @@ const Investor = () => {
   )
 }
 
-export default Investor
+export default Borrower
