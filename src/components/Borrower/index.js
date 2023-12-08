@@ -7,7 +7,7 @@ import PersonalDetails from './personalDetails'
 import KYC from './kyc'
 import Header from '../Common/header'
 
-const Login = () => {
+const Borrower = () => {
   const [activeStep, setActiveStep] = useState(0)
 
   const resolveActiveScreen = () => {
@@ -69,7 +69,6 @@ const Login = () => {
           </Grid>
           <Grid item xs={7}>
             <div className='bg-white rounded-2xl mb-6 px-11 py-6 shadow-md'>
-              <CustomizedSteppers count={4} activeStep={2} />
               <CustomizedSteppers count={3} activeStep={activeStep} />
               {resolveActiveScreen()}
             </div>
@@ -80,4 +79,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Borrower
