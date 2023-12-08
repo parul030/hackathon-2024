@@ -6,9 +6,10 @@ import Header from '../Common/header'
 import ContactDetails from '../Investor/contactDetails'
 import PersonalDetails from '../Investor/personalDetails'
 import LoanDetails from './LoanDetails'
+import IdentificationsDetails from './IdentificationsDetails'
 
 const Borrower = () => {
-  const [activeStep, setActiveStep] = useState(2)
+  const [activeStep, setActiveStep] = useState(3)
 
   const resolveActiveScreen = () => {
     switch (activeStep) {
@@ -22,6 +23,14 @@ const Borrower = () => {
         )
       case 2:
         return <LoanDetails handleNext={handleNext} handleBack={handleBack} />
+      case 3:
+        return (
+          <IdentificationsDetails
+            handleNext={handleNext}
+            handleBack={handleBack}
+          />
+        )
+
       default:
         break
     }

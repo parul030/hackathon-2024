@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Slider from '@mui/material/Slider'
 import { styled } from '@mui/material/styles'
-import Typography from '@mui/material/Typography'
 import { Box, TextField } from '@mui/material'
 import { currencyFormat } from '../Utils'
 
