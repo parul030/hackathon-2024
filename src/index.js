@@ -12,8 +12,6 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-       
-        
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="borrower" element={<Borrower />} />
           <Route path="/" element={<Home />}>
