@@ -1,6 +1,8 @@
 import React from 'react'
 import { Box, Typography, TextField, Button } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
+import dayjs from 'dayjs'
+import axios from 'axios'
 
 const EmployementDetails = ({
   handleNext,
@@ -14,7 +16,8 @@ const EmployementDetails = ({
 
   const { errors } = formState
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    debugger
     console.log(data)
     let newData = {}
     if (investorData) {
@@ -22,6 +25,44 @@ const EmployementDetails = ({
     }
     newData = { ...newData, empDetails: data }
     setInvestorData(newData)
+    const resp = await axios.post(
+      `https://finease-b5044a79ab8d.herokuapp.com/api/v1/member/update`,
+      {
+        fullname: newData.personalDetails.fullName,
+        mobile_no: newData.personalDetails.mobileNo,
+        email: newData.contactDetails.emailId,
+        password: newData.contactDetails.password,
+        date_of_birth: dayjs(newData.contactDetails.dob).format('YYYY-MM-DD'),
+        gender: newData.personalDetails.gender,
+        marital_status: newData.personalDetails.maritialStatus,
+        address: `${
+          newData.contactDetails.addressLine1
+            ? newData.contactDetails.addressLine1
+            : ''
+        }${
+          newData.contactDetails.addressLine2
+            ? newData.contactDetails.addressLine2
+            : ''
+        }${
+          newData.contactDetails.city
+            ? newData.contactDetails.addressLine1
+            : ''
+        }${
+          newData.contactDetails.pincode
+            ? newData.contactDetails.pincode
+            : ''
+        }`.trim(),
+        pan: newData.contactDetails.pan,
+        // aadhaar: newData.kycDetails.aadhaar,
+        employment_company_name: newData.empDetails.companyName,
+        employment_company_type: newData.empDetails.companyType,
+        employment_total_exp: newData.empDetails.expInYrs,
+        // employment_annual_salary: newData.empDetails.pan,
+        // employment_receive_salary_type: 'Bank',
+        role: 'Borrower',
+      }
+    )
+    console.log(resp)
     handleNext()
   }
   return (

@@ -44,14 +44,15 @@ const LoanDetails = ({
 
   const onSubmit = (data) => {
     console.log(data)
+    debugger
     let newData = {}
     if (investorData) {
       newData = { ...investorData }
     }
-    newData = { ...newData, loanDetails: { ...data, tenure, loanPurposes } }
+    newData = { ...newData, loanDetails: { ...data, tenure, loanPurpose } }
     setInvestorData(newData)
 
-    handleNext()
+    // handleNext()
   }
   return (
     <Box
