@@ -7,17 +7,47 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import axios from 'axios'
 
-const KYC = ({ handleNext, handleBack }) => {
+const KYC = ({ handleNext, handleBack, investorData, setInvestorData }) => {
   const { formState, handleSubmit, control } = useForm({
     mode: 'onBlur',
   })
 
   const { errors } = formState
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data)
-    handleNext()
+    debugger
+    let newData = {}
+    if (investorData) {
+      newData = { ...investorData }
+    }
+    newData = { ...newData, kycDetails: data }
+    setInvestorData(newData)
+    const resp = await axios.post(
+      `https://finease-b5044a79ab8d.herokuapp.com/api/v1/member/update`,
+      {
+        fullname: newData.personalDetails.fullName,
+        mobile_no: newData.personalDetails.mobileNo,
+        email: newData.contactDetails.emailId,
+        password: newData.contactDetails.password,
+        date_of_birth: dayjs(newData.kycDetails.dob).format('YYYY-MM-DD'),
+        gender: newData.personalDetails.gender,
+        marital_status: newData.personalDetails.maritialStatus,
+        // address: '123 Main St',
+        pan: newData.kycDetails.pan,
+        aadhaar: newData.kycDetails.aadhaar,
+        // employment_company_name: 'ABC Inc',
+        // employment_company_type: 'Tech',
+        // employment_total_exp: '5',
+        // employment_annual_salary: '100000',
+        // employment_receive_salary_type: 'Bank',
+        role: 'Lender',
+      }
+    )
+    console.log(resp)
+    // handleNext()
   }
   return (
     <Box
@@ -39,13 +69,13 @@ const KYC = ({ handleNext, handleBack }) => {
                 message: 'This field cannot be left blank',
               },
               pattern: {
-                value: ValidationRules.mobileNumber,
+                value: ValidationRules.pancard,
                 message: 'Please enter the correct PAN.',
               },
             }}
             render={({ field: { value, onChange, onBlur } }) => (
               <TextField
-                label='Mobile No.'
+                label='PAN'
                 variant='outlined'
                 name='pan'
                 value={value}

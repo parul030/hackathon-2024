@@ -2,7 +2,12 @@ import React from 'react'
 import { Box, Typography, TextField, Button } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
 
-const EmployementDetails = ({ handleNext, handleBack }) => {
+const EmployementDetails = ({
+  handleNext,
+  handleBack,
+  investorData,
+  setInvestorData,
+}) => {
   const { formState, handleSubmit, control } = useForm({
     mode: 'onBlur',
   })
@@ -11,6 +16,12 @@ const EmployementDetails = ({ handleNext, handleBack }) => {
 
   const onSubmit = (data) => {
     console.log(data)
+    let newData = {}
+    if (investorData) {
+      newData = { ...investorData }
+    }
+    newData = { ...newData, empDetails: data }
+    setInvestorData(newData)
     handleNext()
   }
   return (
@@ -66,7 +77,7 @@ const EmployementDetails = ({ handleNext, handleBack }) => {
             />
           )}
         />
-        <Box className="flex justify-center">
+        <Box className='flex justify-center'>
           <Controller
             control={control}
             name='expInYrs'

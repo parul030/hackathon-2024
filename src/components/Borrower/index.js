@@ -10,30 +10,56 @@ import IdentificationsDetails from './IdentificationsDetails'
 import EmployementDetails from './EmployementDetails'
 
 const Borrower = () => {
-  const [activeStep, setActiveStep] = useState(4)
+  const [activeStep, setActiveStep] = useState(0)
+  const [investorData, setInvestorData] = useState()
 
   const resolveActiveScreen = () => {
     switch (activeStep) {
       case 0:
         return (
-          <ContactDetails handleNext={handleNext} handleBack={handleBack} />
+          <ContactDetails
+            handleNext={handleNext}
+            handleBack={handleBack}
+            investorData={investorData}
+            setInvestorData={setInvestorData}
+            role='Borrower'
+          />
         )
       case 1:
         return (
-          <PersonalDetails handleNext={handleNext} handleBack={handleBack} />
+          <PersonalDetails
+            handleNext={handleNext}
+            handleBack={handleBack}
+            investorData={investorData}
+            setInvestorData={setInvestorData}
+          />
         )
       case 2:
-        return <LoanDetails handleNext={handleNext} handleBack={handleBack} />
-      case 3:
         return (
           <IdentificationsDetails
             handleNext={handleNext}
             handleBack={handleBack}
+            investorData={investorData}
+            setInvestorData={setInvestorData}
+          />
+        )
+      case 3:
+        return (
+          <EmployementDetails
+            handleNext={handleNext}
+            handleBack={handleBack}
+            investorData={investorData}
+            setInvestorData={setInvestorData}
           />
         )
       case 4:
         return (
-          <EmployementDetails handleNext={handleNext} handleBack={handleBack} />
+          <LoanDetails
+            handleNext={handleNext}
+            handleBack={handleBack}
+            investorData={investorData}
+            setInvestorData={setInvestorData}
+          />
         )
 
       default:
@@ -42,7 +68,7 @@ const Borrower = () => {
   }
 
   const handleNext = () => {
-    if (activeStep < 6) {
+    if (activeStep < 5) {
       setActiveStep((activeStep) => activeStep + 1)
     }
   }

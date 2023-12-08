@@ -21,7 +21,12 @@ const loanPurposes = [
   { label: 'major purchases' },
 ]
 
-const LoanDetails = ({ handleNext, handleBack }) => {
+const LoanDetails = ({
+  handleNext,
+  handleBack,
+  investorData,
+  setInvestorData,
+}) => {
   const { formState, handleSubmit, control } = useForm({
     mode: 'onBlur',
   })
@@ -39,6 +44,13 @@ const LoanDetails = ({ handleNext, handleBack }) => {
 
   const onSubmit = (data) => {
     console.log(data)
+    let newData = {}
+    if (investorData) {
+      newData = { ...investorData }
+    }
+    newData = { ...newData, loanDetails: { ...data, tenure, loanPurposes } }
+    setInvestorData(newData)
+
     handleNext()
   }
   return (
@@ -76,13 +88,13 @@ const LoanDetails = ({ handleNext, handleBack }) => {
           options={getAgeArray()}
           selectedOption={tenure}
           handleOptionChange={setTenure}
-          title={"Loan Tenure"}
+          title={'Loan Tenure'}
         />
         <SquareOptions
           options={loanPurposes}
           selectedOption={loanPurpose}
           handleOptionChange={setLoanPurpose}
-          title={"Loan Option"}
+          title={'Loan Option'}
         />
       </Box>
       <Box className='flex justify-between mt-4'>
