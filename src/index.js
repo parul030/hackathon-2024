@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Home from './Home';
 import  Dashboard from './components/dashboard/Dashboard'
-import Borrower from './components/Investor';
+import Investor from './components/Investor';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -13,7 +13,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="borrower" element={<Borrower />} />
+          <Route path="investor" element={<Investor />} />
           <Route path="/" element={<Home />}>
         
         </Route>
