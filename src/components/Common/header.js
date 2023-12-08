@@ -12,8 +12,8 @@ export default function Header() {
         <div className='mr-[58px] mt-[35px] flex'>
             <img  className = "w-[51px] h-[60px] " src = {'imgs/guest.png'} alt = "guest" />
             <div className='ml-[10px]'>
-                <div className='text-sm font-normal text-[#35354D] mt-2'>Hello</div>
-                <div className='text-lg font-normal capitalize '>Shreya Kumar</div>
+                <div className='text-sm text-left font-normal text-[#35354D] mt-2'>Hello</div>
+                <div className='text-lg  text-left font-normal capitalize '>Shreya Kumar</div>
             </div>
         </div>
 
