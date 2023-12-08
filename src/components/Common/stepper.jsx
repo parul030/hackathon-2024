@@ -19,7 +19,7 @@ const QontoStepIconRoot = styled('div')(({ theme, ownerState }) => ({
     color: '#784af4',
   }),
   '& .QontoStepIcon-completedIcon': {
-    color: '#784af4',
+    color: '#86EA9C',
     zIndex: 1,
     fontSize: 18,
   },
@@ -70,7 +70,7 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   },
   [`&.${stepConnectorClasses.completed}`]: {
     [`& .${stepConnectorClasses.line}`]: {
-      backgroundColor: '#35354D',
+      backgroundColor: '#86EA9C',
     },
   },
   [`& .${stepConnectorClasses.line}`]: {
@@ -96,7 +96,7 @@ const ColorlibStepIconRoot = styled('div')(({ theme, ownerState }) => ({
     backgroundColor: '#35354D',
   }),
   ...(ownerState.completed && {
-    backgroundColor: '#35354D',
+    backgroundColor: '#86EA9C',
   }),
 }))
 
@@ -133,19 +133,18 @@ ColorlibStepIcon.propTypes = {
   sno: PropTypes.string,
 }
 
-const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad']
 
-export default function CustomizedSteppers({count}) {
+export default function CustomizedSteppers({count, activeStep}) {
   return (
     <Stack sx={{ width: '100%' }} spacing={4}>
       <Stepper
         alternativeLabel
-        activeStep={1}
+        activeStep={activeStep}
         connector={<ColorlibConnector />}
       >
-        {steps.map((label, i) => (
+        {[...Array(count)].map((label, i) => (
           <Step key={label}>
-            <StepLabel StepIconComponent={ColorlibStepIcon} sno={i} />
+            <StepLabel StepIconComponent={ColorlibStepIcon} />
           </Step>
         ))}
       </Stepper>

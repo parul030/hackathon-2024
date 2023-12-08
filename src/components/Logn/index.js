@@ -31,7 +31,7 @@ const Login = () => {
       </Grid>
       <Grid item xs={7}>
         <div className='bg-white rounded-2xl px-11 py-6 shadow-md'>
-          <CustomizedSteppers />
+          <CustomizedSteppers count={4} activeStep={2}/>
           <Box
             component='form'
             onSubmit={handleSubmit(onSubmit)}
