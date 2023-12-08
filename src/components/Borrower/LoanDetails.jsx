@@ -34,8 +34,6 @@ const LoanDetails = ({
   const [tenure, setTenure] = useState()
   const [loanPurpose, setLoanPurpose] = useState()
 
-  const { errors } = formState
-
   const getAgeArray = () => {
     return [...Array(30)].map((item, i) => {
       return { label: i + 1 }
