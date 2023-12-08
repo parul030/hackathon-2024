@@ -23,7 +23,7 @@ const ContactDetails = ({
 
   const onSubmit = async (data) => {
     console.log(data)
-    debugger
+    
     try {
       const resp = await axios.post(
         `https://finease-b5044a79ab8d.herokuapp.com/${
@@ -38,6 +38,7 @@ const ContactDetails = ({
       newData = { ...newData, contactDetails: data }
       setInvestorData(newData)
       setCookie('accessJWT', resp.data.response.data.accessJWT, { path: '/' })
+      localStorage.setItem('memberId', resp.data.response.data.additionalData.member_id)
       handleNext()
       setServorError(undefined)
     } catch (error) {
@@ -171,9 +172,7 @@ const ContactDetails = ({
         )}
       </Box>
       {serverError && (
-        <Typography className='text-red-400 text-sm'>
-          {serverError}
-        </Typography>
+        <Typography className='text-red-400 text-sm'>{serverError}</Typography>
       )}
       <Box className='flex justify-end mt-4'>
         <Button

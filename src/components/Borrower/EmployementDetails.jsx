@@ -82,7 +82,6 @@ const EmployementDetails = ({
   const { errors } = formState
 
   const onSubmit = async (data) => {
-    debugger
     console.log(data)
     let newData = {}
     if (investorData) {
