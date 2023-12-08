@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Typography, TextField, Button } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
 import { ValidationRules } from '../../constants/ValidationRules'
-import GenderButtons from '../Common/radioOptions'
+import RadioOptions from '../Common/radioOptions'
 
 const PersonalDetails = () => {
   const { formState, handleSubmit, control } = useForm({
@@ -27,22 +27,22 @@ const PersonalDetails = () => {
         <Box>
           <Controller
             control={control}
-            name='mobileNo'
+            name='fullName'
             rules={{
               required: {
                 value: true,
                 message: 'This field cannot be left blank',
               },
               pattern: {
-                value: ValidationRules.mobileNumber,
-                message: 'Please enter the correct Mobile Number.',
+                value: ValidationRules.firstName,
+                message: 'Please enter the correct name',
               },
             }}
             render={({ field: { value, onChange, onBlur } }) => (
               <TextField
-                label='Mobile No.'
+                label='Full Name.'
                 variant='outlined'
-                name='mobileNo'
+                name='fullName'
                 value={value}
                 onChange={onChange}
                 onBlur={onBlur}
@@ -50,13 +50,13 @@ const PersonalDetails = () => {
               />
             )}
           />
-          {errors.mobileNo && (
+          {errors.fullName && (
             <Typography className='text-red-400 text-sm'>
-              {errors.mobileNo.message}
+              {errors.fullName.message}
             </Typography>
           )}
         </Box>
-        <GenderButtons/>
+        <RadioOptions/>
       </Box>
       <Box className='flex justify-end mt-4'>
         <Button

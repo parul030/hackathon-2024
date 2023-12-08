@@ -1,38 +1,42 @@
-import { Button, Box } from '@mui/material';
-import { useState } from 'react';
+import { Button as MuiButton, Box } from '@mui/material'
+import { useState } from 'react'
+import { styled } from '@mui/material/styles'
 
-const GenderButtons = () => {
-  const [selectedGender, setSelectedGender] = useState('');
+const Button = styled(MuiButton)(({ theme, pill, active }) => ({
+  borderRadius: 20,
+  border: '0px',
+  backgroundColor: active ? '#FFF1E0' : '#FFF1E0',
+  '&:hover': {
+    backgroundColor: '#FFF1E0',
+    border: '0px',
+  },
+}))
+
+const RadioOptions = (options, selectedOption, handleOptionChange) => {
+  const [selectedGender, setSelectedOption] = useState('')
 
   const handleGenderChange = (gender) => {
-    setSelectedGender(gender);
-  };
+    setSelectedOption(gender)
+  }
 
   return (
-    <Box className={'flex justify-center items-center'}>
-      <Button
-        className={'mx-2'}
-        variant={selectedGender === 'male' ? 'contained' : 'outlined'}
-        onClick={() => handleGenderChange('male')}
-      >
-        Male
-      </Button>
-      <Button
-        className='mx-2'
-        variant={selectedGender === 'female' ? 'contained' : 'outlined'}
-        onClick={() => handleGenderChange('female')}
-      >
-        Female
-      </Button>
-      <Button
-        className='mx-2'
-        variant={selectedGender === 'other' ? 'contained' : 'outlined'}
-        onClick={() => handleGenderChange('other')}
-      >
-        Other
-      </Button>
+    <Box
+      className={
+        'flex justify-center items-center bg-[#FFF1E0] w-fit m-auto rounded-2xl'
+      }
+    >
+      {/* {options.forEach(({ label, icon }) => (
+        <Button
+          className={'mx-2'}
+          variant={selectedOption === label ? 'contained' : 'outlined'}
+          onClick={() => handleOptionChange(label)}
+          active={selectedOption === label}
+        >
+          {label}
+        </Button>
+      ))} */}
     </Box>
-  );
-};
+  )
+}
 
-export default GenderButtons;
+export default RadioOptions
