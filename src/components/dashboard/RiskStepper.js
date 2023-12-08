@@ -10,7 +10,9 @@ export default function RiskStepper() {
 const [activeStep, setActiveStep] = useState(0)
 const [riskType , setRiskType] = useState("")
 const [investment , setInvestment] = useState("")
+const [incomeType , setIncomeType] = useState("")
 const [innerStep, setInnerStep] = useState(0)
+const [fundValue , setFundValue] = useState(0)
 
 const handleSelect  = (value) =>{
   setRiskType(value)
@@ -19,7 +21,16 @@ const handleSelect  = (value) =>{
  const handleInvestment = (value) =>{
   setInvestment(value)
  }
+ const handleButton = (value) =>{
+  setInnerStep(innerStep+value)
+ }
+ const handleEMployementType = (value) =>{
+  setIncomeType(value)
+ }
 
+ const handleFundValue =(value) =>{
+  setFundValue(value)
+ }
 const resolveActiveScreen = () => {
     switch (activeStep) {
       case 0:
@@ -30,7 +41,13 @@ const resolveActiveScreen = () => {
         return (
             <div><Step2 investment = {investment}
              setInnerStep = {setInnerStep}
-             handleInvestment = {handleInvestment} /></div>
+             innerStep = {innerStep}
+             handleInvestment = {handleInvestment}
+             handleEMployementType = {handleEMployementType}
+             handleButton = {handleButton}
+             incomeType ={incomeType}
+             handleFundValue = { handleFundValue}
+             fundValue={fundValue} /></div>
         )
       case 2:
         return <div></div>
