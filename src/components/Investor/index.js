@@ -7,7 +7,7 @@ import PersonalDetails from './personalDetails'
 import KYC from './kyc'
 import Header from '../Common/header'
 
-const Borrower = () => {
+const Investor = () => {
   const [activeStep, setActiveStep] = useState(0)
 
   const resolveActiveScreen = () => {
@@ -79,4 +79,4 @@ const Borrower = () => {
   )
 }
 
-export default Borrower
+export default Investor
