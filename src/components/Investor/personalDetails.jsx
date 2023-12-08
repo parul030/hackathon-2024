@@ -24,6 +24,7 @@ const PersonalDetails = ({
   const { errors } = formState
 
   const onSubmit = (data) => {
+    debugger
     console.log(data)
     let newData = {}
     if (investorData) {

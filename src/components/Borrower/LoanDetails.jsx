@@ -34,8 +34,6 @@ const LoanDetails = ({
   const [tenure, setTenure] = useState()
   const [loanPurpose, setLoanPurpose] = useState()
 
-  const { errors } = formState
-
   const getAgeArray = () => {
     return [...Array(30)].map((item, i) => {
       return { label: i + 1 }
@@ -44,14 +42,15 @@ const LoanDetails = ({
 
   const onSubmit = (data) => {
     console.log(data)
+    debugger
     let newData = {}
     if (investorData) {
       newData = { ...investorData }
     }
-    newData = { ...newData, loanDetails: { ...data, tenure, loanPurposes } }
+    newData = { ...newData, loanDetails: { ...data, tenure, loanPurpose } }
     setInvestorData(newData)
 
-    handleNext()
+    // handleNext()
   }
   return (
     <Box

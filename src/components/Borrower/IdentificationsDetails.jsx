@@ -7,7 +7,12 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 
-const IdentificationsDetails = ({ handleNext, handleBack }) => {
+const IdentificationsDetails = ({
+  handleNext,
+  handleBack,
+  investorData,
+  setInvestorData,
+}) => {
   const { formState, handleSubmit, control } = useForm({
     mode: 'onBlur',
   })
@@ -16,6 +21,12 @@ const IdentificationsDetails = ({ handleNext, handleBack }) => {
 
   const onSubmit = (data) => {
     console.log(data)
+    let newData = {}
+    if (investorData) {
+      newData = { ...investorData }
+    }
+    newData = { ...newData, contactDetails: data }
+    setInvestorData(newData)
     handleNext()
   }
   return (
