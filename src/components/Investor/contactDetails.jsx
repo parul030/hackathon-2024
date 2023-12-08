@@ -1,18 +1,62 @@
-import React from 'react'
-import {  Box, Typography, TextField, Button } from '@mui/material'
+import React, { useState } from 'react'
+import { Box, Typography, TextField, Button } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
 import { ValidationRules } from '../../constants/ValidationRules'
+import axios from 'axios'
+import { useCookies } from 'react-cookie'
 
-const ContactDetails = ({handleNext, handleBack}) => {
+const ContactDetails = ({
+  handleNext,
+  handleBack,
+  investorData,
+  setInvestorData,
+  role = 'Lender',
+}) => {
   const { formState, handleSubmit, control } = useForm({
     mode: 'onBlur',
   })
 
   const { errors } = formState
+  const [hideConfirmPassword, setHideConfirmPassword] = useState(false)
+  const [cookies, setCookie] = useCookies(['user'])
+  const [serverError, setServorError] = useState()
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data)
-    handleNext()
+    debugger
+    try {
+      const resp = await axios.post(
+        `https://finease-b5044a79ab8d.herokuapp.com/${
+          !hideConfirmPassword ? 'api/v1/register' : 'api/v1/login'
+        }`,
+        { email: data.emailId, role: role, password: data.password }
+      )
+      let newData = {}
+      if (investorData) {
+        newData = { ...investorData }
+      }
+      newData = { ...newData, contactDetails: data }
+      setInvestorData(newData)
+      setCookie('accessJWT', resp.data.response.data.accessJWT, { path: '/' })
+      handleNext()
+      setServorError(undefined)
+    } catch (error) {
+      setServorError('Something went wrong!!')
+    }
+  }
+
+  const emailCheck = async (email) => {
+    try {
+      const resp = await axios.post(
+        'https://finease-b5044a79ab8d.herokuapp.com/get-user-by-email',
+        { email }
+      )
+      setHideConfirmPassword(true)
+      console.log(resp)
+    } catch (error) {
+      setHideConfirmPassword(false)
+      console.log(error)
+    }
   }
   return (
     <Box
@@ -20,43 +64,13 @@ const ContactDetails = ({handleNext, handleBack}) => {
       onSubmit={handleSubmit(onSubmit)}
       className='flex flex-col'
     >
-      <div variant='h3' className='text-left capitalize text-[20px] mt-[46px]  font-light text-[#35354D] font-[roboto] mb-4'>
-      contact details
+      <div
+        variant='h3'
+        className='text-left capitalize text-[20px] mt-[46px]  font-light text-[#35354D] font-[roboto] mb-4'
+      >
+        contact details
       </div>
       <Box className='flex mt-[34px] flex-col gap-4'>
-        <Box>
-          <Controller
-            control={control}
-            name='mobileNo'
-            rules={{
-              required: {
-                value: true,
-                message: 'This field cannot be left blank',
-              },
-              pattern: {
-                value: ValidationRules.mobileNumber,
-                message: 'Please enter the correct Mobile Number.',
-              },
-            }}
-            render={({ field: { value, onChange, onBlur } }) => (
-              <TextField
-                label='Mobile No.'
-                variant='outlined'
-                name='mobileNo'
-                value={value}
-                onChange={onChange}
-                onBlur={onBlur}
-                className='w-full'
-              />
-            )}
-          />
-          {errors.mobileNo && (
-            <Typography className='text-red-400 text-sm'>
-              {errors.mobileNo.message}
-            </Typography>
-          )}
-        </Box>
-
         <Controller
           control={control}
           name='emailId'
@@ -78,7 +92,10 @@ const ContactDetails = ({handleNext, handleBack}) => {
               name='emailId'
               value={value}
               onChange={onChange}
-              onBlur={onBlur}
+              onBlur={(e) => {
+                onBlur(e)
+                emailCheck(e.currentTarget.value)
+              }}
               className='w-full mt-[34px]'
             />
           )}
@@ -103,7 +120,7 @@ const ContactDetails = ({handleNext, handleBack}) => {
           }}
           render={({ field: { value, onChange, onBlur } }) => (
             <TextField
-              label='Set Password'
+              label={!hideConfirmPassword ? 'Set Password' : 'Enter Password'}
               variant='outlined'
               type='password'
               name='password'
@@ -119,40 +136,47 @@ const ContactDetails = ({handleNext, handleBack}) => {
             {errors.password.message}
           </Typography>
         )}
-        <Controller
-          control={control}
-          name='confirmPassword'
-          rules={{
-            required: {
-              value: true,
-              message: 'This field cannot be left blank',
-            },
-            pattern: {
-              value: ValidationRules.alphanumericCharacters,
-              message: 'Please enter the correct Password.',
-            },
-          }}
-          render={({ field: { value, onChange, onBlur } }) => (
-            <TextField
-              label='Confirm Password'
-              variant='outlined'
-              type='password'
-              name='confirmPassword'
-              value={value}
-              onChange={onChange}
-              onBlur={onBlur}
-              className='w-full mt-[34px]'
-            />
-          )}
-        />
+        {!hideConfirmPassword && (
+          <Controller
+            control={control}
+            name='confirmPassword'
+            rules={{
+              required: {
+                value: true,
+                message: 'This field cannot be left blank',
+              },
+              pattern: {
+                value: ValidationRules.alphanumericCharacters,
+                message: 'Please enter the correct Password.',
+              },
+            }}
+            render={({ field: { value, onChange, onBlur } }) => (
+              <TextField
+                label='Confirm Password'
+                variant='outlined'
+                type='password'
+                name='confirmPassword'
+                value={value}
+                onChange={onChange}
+                onBlur={onBlur}
+                className='w-full mt-[34px]'
+              />
+            )}
+          />
+        )}
         {errors.confirmPassword && (
           <Typography className='text-red-400 text-sm'>
             {errors.confirmPassword.message}
           </Typography>
         )}
       </Box>
+      {serverError && (
+        <Typography className='text-red-400 text-sm'>
+          {serverError}
+        </Typography>
+      )}
       <Box className='flex justify-end mt-4'>
-        <Button 
+        <Button
           variant='contained'
           type='submit'
           disabled={false}
