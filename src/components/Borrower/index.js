@@ -10,7 +10,7 @@ import IdentificationsDetails from './IdentificationsDetails'
 import EmployementDetails from './EmployementDetails'
 
 const Borrower = () => {
-  const [activeStep, setActiveStep] = useState(3)
+  const [activeStep, setActiveStep] = useState(0)
   const [investorData, setInvestorData] = useState()
 
   const resolveActiveScreen = () => {
