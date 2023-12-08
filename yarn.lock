@@ -5347,10 +5347,25 @@ hpack.js@^2.1.6:
     readable-stream "^2.0.1"
     wbuf "^1.1.0"
 
-html-encoding-sniffer@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/html-encoding-sniffer/-/html-encoding-sniffer-2.0.1.tgz"
-  integrity sha512-D5JbOMBIR/TVZkubHT+OyT2705QvogUW4IBn6nHd756OwieSF9aDYFj4dv6HHEVGYbHaLETa3WggZYWWMyy3ZQ==
+"he@^1.2.0":
+  "integrity" "sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw=="
+  "resolved" "https://registry.npmjs.org/he/-/he-1.2.0.tgz"
+  "version" "1.2.0"
+
+"highcharts-react-official@^3.2.1":
+  "integrity" "sha512-hyQTX7ezCxl7JqumaWiGsroGWalzh24GedQIgO3vJbkGOZ6ySRAltIYjfxhrq4HszJOySZegotEF7v+haQ75UA=="
+  "resolved" "https://registry.npmjs.org/highcharts-react-official/-/highcharts-react-official-3.2.1.tgz"
+  "version" "3.2.1"
+
+"highcharts@>=6.0.0":
+  "integrity" "sha512-9i650YK7ZBA1Mgtr3avMkLVCAI45RQvYnwi+eHsdFSaBGuQN6BHoa4j4lMkSJLv0V4LISTK1z7J7G82Lzd7zwg=="
+  "resolved" "https://registry.npmjs.org/highcharts/-/highcharts-11.2.0.tgz"
+  "version" "11.2.0"
+
+"hoist-non-react-statics@^3.3.1":
+  "integrity" "sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw=="
+  "resolved" "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
+  "version" "3.3.2"
   dependencies:
     whatwg-encoding "^1.0.5"
 

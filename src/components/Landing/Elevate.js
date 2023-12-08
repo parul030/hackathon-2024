@@ -3,7 +3,7 @@ import React from 'react'
 
 function Elevate() {
   return (
-    <div className="flex justify-between relative pl-[97px] pr-[120px] pt-[37px]">
+    <div className="flex justify-between relative pl-[97px] pr-[120px] pt-[37px] pb-[79px]">
       <div className='absolute left-0 top-[60%]'> <img src = {'imgs/leftRibbon.png'} alt="lendingRIbbon"   className=' '/></div>
       <div className='mt-[53px] relative '>
         <div className=' text-left w-[441px] leading-[69.09px] text-[60px] font-normal text-#2A2A3D'>Elevate your financial journey with us</div>
