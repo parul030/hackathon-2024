@@ -19,10 +19,10 @@ const ContactDetails = () => {
       onSubmit={handleSubmit(onSubmit)}
       className='flex flex-col'
     >
-      <Typography variant='h3' className='text-center font-bold mb-4'>
-        Contact Details
-      </Typography>
-      <Box className='flex flex-col gap-4'>
+      <div variant='h3' className='text-left capitalize text-[20px] mt-[46px]  font-light text-[#35354D] font-[roboto] mb-4'>
+      contact details
+      </div>
+      <Box className='flex mt-[34px] flex-col gap-4'>
         <Box>
           <Controller
             control={control}
@@ -55,6 +55,7 @@ const ContactDetails = () => {
             </Typography>
           )}
         </Box>
+
         <Controller
           control={control}
           name='emailId'
@@ -77,7 +78,7 @@ const ContactDetails = () => {
               value={value}
               onChange={onChange}
               onBlur={onBlur}
-              className='w-full'
+              className='w-full mt-[34px]'
             />
           )}
         />
@@ -108,7 +109,7 @@ const ContactDetails = () => {
               onBlur={onBlur}
               value={value}
               onChange={onChange}
-              className='w-full'
+              className='w-full mt-[34px]'
             />
           )}
         />
@@ -139,7 +140,7 @@ const ContactDetails = () => {
               value={value}
               onChange={onChange}
               onBlur={onBlur}
-              className='w-full'
+              className='w-full mt-[34px]'
             />
           )}
         />
@@ -150,11 +151,11 @@ const ContactDetails = () => {
         )}
       </Box>
       <Box className='flex justify-end mt-4'>
-        <Button
+        <Button 
           variant='contained'
           type='submit'
           disabled={false}
-          className='w-8 mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded mr-0'
+          className='w-[185px] mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded mr-0'
         >
           Next
         </Button>

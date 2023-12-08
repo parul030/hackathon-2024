@@ -33,14 +33,6 @@ function Roadmap() {
             setAggresive(true)
         }
       }
-
-      const muiTheme = getMuiTheme({
-        slider: {
-          trackColor: "yellow",
-          selectionColor: "red"
-        }
-      });
-
   return (
   <div className='pt-[77px] pl-[73px] pb-[108px] relative'>
     <p className=' text-left text-[60px] font-normal leading-normal w-[50%]'>A roadmap to sustainable wealth growth</p>
