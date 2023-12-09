@@ -114,10 +114,10 @@ const ContactDetails = ({
               value: true,
               message: 'This field cannot be left blank',
             },
-            pattern: {
-              value: ValidationRules.alphanumericCharacters,
-              message: 'Please enter the correct Password.',
-            },
+            // pattern: {
+            //   value: ValidationRules.alphanumericCharacters,
+            //   message: 'Please enter the correct Password.',
+            // },
           }}
           render={({ field: { value, onChange, onBlur } }) => (
             <TextField
@@ -146,10 +146,10 @@ const ContactDetails = ({
                 value: true,
                 message: 'This field cannot be left blank',
               },
-              pattern: {
-                value: ValidationRules.alphanumericCharacters,
-                message: 'Please enter the correct Password.',
-              },
+              // pattern: {
+              //   value: ValidationRules.alphanumericCharacters,
+              //   message: 'Please enter the correct Password.',
+              // },
             }}
             render={({ field: { value, onChange, onBlur } }) => (
               <TextField

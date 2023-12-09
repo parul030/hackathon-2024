@@ -92,15 +92,15 @@ return <div onClick = {() =>handleInvestorValue (item)} className={` ${ investor
 
    {innerStep === 1 ?  <div>
         <p className="text-[#BDBDE4] text-[18px] font-normal mb-[50px]">Choose borrower’s employment type?</p>
-        <div className="flex justify-between px-[24%]">
-        <div onClick = {() =>handleEMployementType("salaried")} className={` ${incomeType === "salaried" ? "border border-1 border-[#F5BD74]" : ''} bg-[#3F3F58] py-[50px] px-[50px] rounded-[30px] text-center`}>
-            <img src = "imgs/salarified.png" alt ="salarified" />
-            <p className="mt-[20px]">Salaried</p>
+        <div className="flex justify-between px-[25%]">
+        <div onClick = {() =>handleEMployementType("salaried")} className={` ${incomeType === "salaried" ? "border border-1 border-[#F5BD74]" : ''} bg-[#3F3F58]  w-[170px] py-[50px] cursor-pointer px-[30px] rounded-[30px] text-center`}>
+            <img src = "imgs/salarified.png" className='w-[71px] h-[44px] block mx-auto' alt ="salarified" />
+            <p className="mt-[20px] text-white">Salaried</p>
 
         </div>
-        <div onClick = {() =>handleEMployementType("employed")}  className={` ${incomeType === "employed" ? "border border-1 border-[#F5BD74]" : ''} bg-[#3F3F58] py-[50px] px-[50px] rounded-[30px] text-center`}>
-            <img src = "imgs/selfEmployed.png" alt ="employed" />
-            <p  className="mt-[20px]">Self Employed</p>
+        <div onClick = {() =>handleEMployementType("employed")}  className={` ${incomeType === "employed" ? "border border-1 border-[#F5BD74]" : ''} bg-[#3F3F58]  w-[170px] py-[50px] px-[30px] cursor-pointer rounded-[30px] text-center`}>
+            <img src = "imgs/selfEmployed.png" className='w-[71px] h-[44px] block mx-auto' alt ="employed" />
+            <p  className="mt-[20px] text-white">Self Employed</p>
 
         </div>
         </div>
@@ -109,10 +109,44 @@ return <div onClick = {() =>handleInvestorValue (item)} className={` ${ investor
    {innerStep === 2 ? <div>
    <p className="text-[#BDBDE4] text-[18px] font-normal mb-[50px]">Whom do you wish to fund?</p>
   <div className="flex px-[20%]">
-    <div onClick = {() =>handleFundValue (0)} className={`${fundValue === 0 ? "border border-1 border-[#F5BD74]" : '' } text-sm font-light mr-[20px] py-[20px] px-[5px] w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58]`}>0% funded</div>
-    <div onClick = {() =>handleFundValue (25)} className={` ${fundValue === 25 ? "border border-1 border-[#F5BD74]" : '' } text-sm font-light  mr-[20px] py-[20px] px-[5px] w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58]`}>25% funded</div>
-    <div onClick = {() =>handleFundValue (50)} className={`${fundValue === 50 ? "border border-1 border-[#F5BD74]" : '' } text-sm font-light  mr-[20px] py-[20px] px-[5px] w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58]`}>50% funded</div>
-    <div  onClick = {() =>handleFundValue (75)} className={`${fundValue === 75 ? "border border-1 border-[#F5BD74]" : ''} text-sm font-light  mr-[20px] py-[20px] px-[5px]  w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58]`}>75% funded</div>
+    <div onClick = {() =>handleFundValue (0)} className={`${fundValue === 0 ? "border border-1 border-[#F5BD74]" : '' } text-sm font-light cursor-pointer mr-[20px] py-[20px] px-[5px] w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58] text-white`}>0% funded</div>
+    <div onClick = {() =>handleFundValue (25)} className={` ${fundValue === 25 ? "border border-1 border-[#F5BD74]" : '' } text-sm font-light cursor-pointer  mr-[20px] py-[20px] px-[5px] w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58] text-white`}>25% funded</div>
+    <div onClick = {() =>handleFundValue (50)} className={`${fundValue === 50 ? "border border-1 border-[#F5BD74]" : '' } text-sm font-light cursor-pointer  mr-[20px] py-[20px] px-[5px] w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58] text-white`}>50% funded</div>
+    <div  onClick = {() =>handleFundValue (75)} className={`${fundValue === 75 ? "border border-1 border-[#F5BD74]" : ''} text-sm font-light cursor-pointer mr-[20px] py-[20px] px-[5px]  w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58] text-white`}>75% funded</div>
+</div>
+   </div>: null}
+
+   {innerStep === 3 ? <div>
+   <p className="text-[#BDBDE4] text-[18px] font-normal mb-[50px]">Choose the grade of the borrower</p>
+  <div className="flex px-[20%]">
+    <div onClick = {() =>handleFundValue (0)} className={`${fundValue === 0 ? "border border-1 border-[#F5BD74]" : '' } text-sm capitalize text-[#AEAEB7] font-light mr-[20px] py-[20px] cursor-pointer px-[5px] w-[92px]  rounded-[10px] bg-[#3F3F58] `}>
+        <p>grade</p>
+        <p>A</p>
+        <p>10%-11%</p>
+        <p>returns</p>
+        <p>very low risk</p>
+    </div>
+    <div onClick = {() =>handleFundValue (25)} className={` ${fundValue === 25 ? "border border-1 border-[#F5BD74]" : '' } text-sm  capitalize font-light text-[#AEAEB7]  mr-[20px] py-[20px]  cursor-pointer px-[5px] w-[92px]rounded-[10px] bg-[#3F3F58]`}>
+      <p>grade</p>
+        <p>B</p>
+        <p>12%-13%</p>
+        <p>returns</p>
+        <p>medium risk</p>
+    </div>
+    <div onClick = {() =>handleFundValue (50)} className={`${fundValue === 50 ? "border border-1 border-[#F5BD74]" : '' } text-sm  capitalize font-light text-[#AEAEB7]  mr-[20px] py-[20px]  cursor-pointer px-[5px] w-[92px]  rounded-[10px] bg-[#3F3F58]`}>
+    <p>grade</p>
+        <p>C</p>
+        <p>14%-15%</p>
+        <p>returns</p>
+        <p>High risk</p>
+    </div>
+    <div  onClick = {() =>handleFundValue (75)} className={`${fundValue === 75 ? "border border-1 border-[#F5BD74]" : ''} text-sm  capitalize font-light text-[#AEAEB7]  mr-[20px] py-[20px]  cursor-pointer px-[5px]  w-[92px]  rounded-[10px] bg-[#3F3F58]`}>
+     <p>grade</p>
+     <p>D</p>
+    <p>16%-18%</p>
+    <p>returns</p>
+    <p>very high risk</p>
+    </div>
 </div>
    </div>: null}
 
@@ -131,9 +165,9 @@ return <div onClick = {() =>handleInvestorValue (item)} className={` ${ investor
     </Grid>
    </div>: null}
 
-      <div className="flex text-center">
-       <img  className="block ml-[35%] cursor-pointer" onClick={() => handleButton(-1)} src = "imgs/prevIcon.png"  alt = "prev" />
-        <img className="block mr-[35%] cursor-pointer" onClick={() => handleButton(1)} src = "imgs/nextIcon.png"  alt = "next" />
+      <div className="flex justify-center mt-[40px]">
+       <img  className="block ml-[20%] cursor-pointer w-[20px] h-[20px]" onClick={() => handleButton(-1)} src = "imgs/prevIcon.png"  alt = "prev" />
+        <img className="block mr-[20%] cursor-pointer w-[20px] h-[20px] ml-[40px] " onClick={() => handleButton(1)} src = "imgs/nextIcon.png"  alt = "next" />
         </div>  
        </>
     );
