@@ -130,10 +130,10 @@ const PersonalDetails = ({
         />
         <RadioOptions
           options={[
-            { label: 'Married', icon: <MaleOutlined /> },
-            { label: 'unmarried', icon: <FemaleOutlined /> },
-            { label: 'divorced', icon: <TransgenderOutlined /> },
-            { label: 'Widowed', icon: <TransgenderOutlined /> },
+            { label: 'Married' },
+            { label: 'unmarried' },
+            { label: 'divorced' },
+            { label: 'Widowed' },
           ]}
           selectedOption={selectedMaritialStatus}
           title={'Marital Status'}

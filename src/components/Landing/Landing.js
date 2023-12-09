@@ -4,6 +4,7 @@ import Elevate from './Elevate';
 import OpenAccount from './OpenAccount'
 import Roadmap from './Roadmap'
 import {Link } from 'react-router-dom'
+import FeesCharges from './FeesCharges';
 
 
 
@@ -41,6 +42,7 @@ function Landing() {
     </div>
     </div>
     <Elevate/>
+    <FeesCharges />
     <OpenAccount/>
     <Roadmap/>
     </div>

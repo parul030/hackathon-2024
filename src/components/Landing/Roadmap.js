@@ -4,6 +4,7 @@ import MyChartComponent from './Chart'
 import CustomizedSlider from './slider'
 import { currencyFormat } from '../Utils'
 
+
 function Roadmap() { 
 
     function valuetext(value) {
@@ -94,7 +95,7 @@ function Roadmap() {
     </div>
     </div>
     <div className='h-[893px] pt-[93px] pl-[163px]  pr-[51px] absolute right-0 top-[20%] rounded-l-[40px] bg-[#2A2A3D] z-[-1] shadow-v1 w-[800px] mt-[63px]'>
-        <div className='flex justify-between'>
+        <div className='flex justify-between mb-[50px]'>
             <div className='w-[255.285px] rounded-[20px] text-left pt-[30px] pl-[21px] pb-[27px] border border-dashed border-1 border-[#F9F885]'>
                 <p className='text-white text-lg capitalize font-normal'>Traditional Investing</p>
                 <p className='text-[34px] font-normal text-[#F9F885]'>₹ 2,00,000</p>
@@ -107,7 +108,9 @@ function Roadmap() {
             </div>
         </div>
 
-        <MyChartComponent/>
+        <img src = "imgs/chart.png" alt = "chart" />
+{/* 
+        <MyChartComponent/> */}
     </div>
   </div>
   );

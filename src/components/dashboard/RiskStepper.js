@@ -128,6 +128,7 @@ const handleNext = () => {
     }
   }
 
+  console.log(activeStep ,"activestep")
   return (
 <div className='mt-[21px]'>
  {activeStep <= 2 ?  <HorizontalLinearStepper activeStep = {activeStep} /> : null} 
@@ -144,7 +145,7 @@ const handleNext = () => {
           
             <button className={`${innerStep < 4  ? "opacity-2 "  : ""} text-[#36C3D6] text-base font-semibold`}
              onClick={handleNext}>
-              {activeStep > 2 ?  'Next' : "Done"  }
+              {activeStep > 2 ?   "Done"  : 'Next' }
             </button>
             <img src = {"imgs/nextIcon.svg"} alt = "nextIcon" />
           </Box>
