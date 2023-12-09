@@ -35,11 +35,11 @@ const handleSelect  = (value) =>{
 
  const onSubmit = async (data) => {
 
-  console.log()
+  const memeberId= localStorage.getItem("memberId")
   const resp = await axios.post(
     `https://finease-b5044a79ab8d.herokuapp.com/api/v1/lender/invest`,
     {
-    lender_id: "45",
+    lender_id: memeberId,
   amount: "1000.50",
   tenure: "12 months",
   risk_type: "low",

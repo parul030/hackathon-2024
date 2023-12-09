@@ -23,7 +23,7 @@ const [activeStep, setActiveStep] = useState(0)
     },
     {
         tenure:'tenure',
-        month:'03 Months',
+        month:'06 Months',
         invest:'Min. Investment amt.',
         investAmount:'₹25,000',
         expected:"Expected returns",
@@ -35,7 +35,7 @@ const [activeStep, setActiveStep] = useState(0)
     },
     {
         tenure:'tenure',
-        month:'03 Months',
+        month:'08 Months',
         invest:'Min. Investment amt.',
         investAmount:'₹25,000',
         expected:"Expected returns",
@@ -47,7 +47,7 @@ const [activeStep, setActiveStep] = useState(0)
     },
     {
         tenure:'tenure',
-        month:'03 Months',
+        month:'12 Months',
         invest:'Min. Investment amt.',
         investAmount:'₹25,000',
         expected:"Expected returns",
@@ -59,7 +59,7 @@ const [activeStep, setActiveStep] = useState(0)
     },
     {
       tenure:'tenure',
-      month:'03 Months',
+      month:'16 Months',
       invest:'Min. Investment amt.',
       investAmount:'₹25,000',
       expected:"Expected returns",
@@ -71,7 +71,7 @@ const [activeStep, setActiveStep] = useState(0)
   },
   {
     tenure:'tenure',
-    month:'03 Months',
+    month:'18 Months',
     invest:'Min. Investment amt.',
     investAmount:'₹25,000',
     expected:"Expected returns",
@@ -118,7 +118,7 @@ return(
         <div key={index} className= "ml-[20px]">
         <div className='h-[371px] text-center shadow-v2 rounded-[30px]'>
         <div className='flex py-[30px] h-[99px] bg-[#F5BD74] rounded-t-[30px]'>
-        <p><img className='block mx-auto' src = {'imgs/calendar.svg'}  alt = "calendar"/></p>
+        <p><img className='block mx-auto' src = {'imgs/calendar.png'}  alt = "calendar"/></p>
         <div>
         <p>{item.tenure}</p>
         <p>{item.month}</p>

@@ -109,8 +109,8 @@ export default function Step2(props) {
    </div>: null}
 
       <div className="flex text-center">
-       <img  className="block ml-[35%] cursor-pointer" onClick={() => handleButton(-1)} src = "imgs/prevIcon.png"  alt = "prev" />
-        <img className="block mr-[35%] cursor-pointer" onClick={() => handleButton(1)} src = "imgs/nextIcon.png"  alt = "next" />
+       <img  className="block ml-[20%] cursor-pointer" onClick={() => handleButton(-1)} src = "imgs/prevIcon.png"  alt = "prev" />
+        <img className="block mr-[20%] cursor-pointer" onClick={() => handleButton(1)} src = "imgs/nextIcon.png"  alt = "next" />
         </div>  
        </>
     );

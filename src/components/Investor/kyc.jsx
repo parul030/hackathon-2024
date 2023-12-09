@@ -158,6 +158,7 @@ const KYC = ({ handleNext, handleBack, investorData, setInvestorData }) => {
           </Typography>
         )}
       </Box>
+      <Box className='flex justify-between mt-4'>
       <Button
         variant='contained'
         disabled={false}
@@ -166,7 +167,7 @@ const KYC = ({ handleNext, handleBack, investorData, setInvestorData }) => {
       >
         Back
       </Button>
-      <Box className='flex justify-end mt-4'>
+     
         <Button
           variant='contained'
           type='submit'
@@ -175,7 +176,9 @@ const KYC = ({ handleNext, handleBack, investorData, setInvestorData }) => {
         >
           Submit
         </Button>
+      
       </Box>
+    
     </Box>
   )
 }
