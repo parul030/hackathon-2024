@@ -61,12 +61,12 @@ export default function Step2(props) {
         <div className="flex justify-between px-[24%]">
         <div onClick = {() =>handleEMployementType("salaried")} className={` ${incomeType === "salaried" ? "border border-1 border-[#F5BD74]" : ''} bg-[#3F3F58] py-[50px] px-[50px] rounded-[30px] text-center h-[173px]`}>
             <img src = "imgs/selfEmployed.png" alt ="salarified" />
-            <p className="mt-[20px]">Salaried</p>
+            <p className="mt-[20px] text-white">Salaried</p>
 
         </div>
         <div onClick = {() =>handleEMployementType("employed")}  className={` ${incomeType === "employed" ? "border border-1 border-[#F5BD74]" : ''} bg-[#3F3F58] py-[50px] px-[50px] rounded-[30px] text-center h-[173px]`}>
             <img src = "imgs/selfEmployed.png" alt ="salarified" />
-            <p  className="mt-[20px]">Self Employed</p>
+            <p  className="mt-[20px] text-white ">Self Employed</p>
 
         </div>
         </div>
@@ -75,10 +75,36 @@ export default function Step2(props) {
    {innerStep === 2 ? <div>
    <p className="text-[#BDBDE4] text-[18px] font-normal mb-[50px]">Whom do you wish to fund?</p>
   <div className="flex px-[20%]">
-    <div onClick = {() =>handleFundValue (0)} className={`${fundValue === 0 ? "border border-1 border-[#F5BD74]" : '' } text-sm font-light mr-[20px] py-[20px] px-[5px] w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58]`}>0% funded</div>
-    <div onClick = {() =>handleFundValue (25)} className={` ${fundValue === 25 ? "border border-1 border-[#F5BD74]" : '' } text-sm font-light  mr-[20px] py-[20px] px-[5px] w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58]`}>25% funded</div>
-    <div onClick = {() =>handleFundValue (50)} className={`${fundValue === 50 ? "border border-1 border-[#F5BD74]" : '' } text-sm font-light  mr-[20px] py-[20px] px-[5px] w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58]`}>50% funded</div>
-    <div  onClick = {() =>handleFundValue (75)} className={`${fundValue === 75 ? "border border-1 border-[#F5BD74]" : ''} text-sm font-light  mr-[20px] py-[20px] px-[5px]  w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58]`}>75% funded</div>
+    <div onClick = {() =>handleFundValue (0)} className={`${fundValue === 0 ? "border border-1 border-[#F5BD74]" : '' } text-sm font-light cursor-pointer mr-[20px] py-[20px] px-[5px] w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58]`}>0% funded</div>
+    <div onClick = {() =>handleFundValue (25)} className={` ${fundValue === 25 ? "border border-1 border-[#F5BD74]" : '' } text-sm font-light cursor-pointer  mr-[20px] py-[20px] px-[5px] w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58]`}>25% funded</div>
+    <div onClick = {() =>handleFundValue (50)} className={`${fundValue === 50 ? "border border-1 border-[#F5BD74]" : '' } text-sm font-light cursor-pointer  mr-[20px] py-[20px] px-[5px] w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58]`}>50% funded</div>
+    <div  onClick = {() =>handleFundValue (75)} className={`${fundValue === 75 ? "border border-1 border-[#F5BD74]" : ''} text-sm font-light cursor-pointer mr-[20px] py-[20px] px-[5px]  w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58]`}>75% funded</div>
+</div>
+   </div>: null}
+
+   {innerStep === 3 ? <div>
+   <p className="text-[#BDBDE4] text-[18px] font-normal mb-[50px]">Choose the grade of the borrower</p>
+  <div className="flex px-[20%]">
+    <div onClick = {() =>handleFundValue (0)} className={`${fundValue === 0 ? "border border-1 border-[#F5BD74]" : '' } text-sm text-[#AEAEB7] font-light mr-[20px] py-[20px] cursor-pointer px-[5px] w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58] h-[105px] `}>
+        <p>grade</p>
+        <p>A</p>
+        <p>10%-11%</p>
+    </div>
+    <div onClick = {() =>handleFundValue (25)} className={` ${fundValue === 25 ? "border border-1 border-[#F5BD74]" : '' } text-sm font-light text-[#AEAEB7]  mr-[20px] py-[20px]  cursor-pointer px-[5px] w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58] h-[105px]`}>
+      <p>grade</p>
+        <p>B</p>
+        <p>12%-13%</p>
+    </div>
+    <div onClick = {() =>handleFundValue (50)} className={`${fundValue === 50 ? "border border-1 border-[#F5BD74]" : '' } text-sm font-light text-[#AEAEB7]  mr-[20px] py-[20px]  cursor-pointer px-[5px] w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58] h-[105px]`}>
+    <p>grade</p>
+        <p>C</p>
+        <p>14%-15%</p>
+    </div>
+    <div  onClick = {() =>handleFundValue (75)} className={`${fundValue === 75 ? "border border-1 border-[#F5BD74]" : ''} text-sm font-light text-[#AEAEB7]  mr-[20px] py-[20px]  cursor-pointer px-[5px]  w-[92px] h-[58px] rounded-[10px] bg-[#3F3F58] h-[105px]`}>
+     <p>grade</p>
+     <p>D</p>
+    <p>16%-18%</p>
+    </div>
 </div>
    </div>: null}
 

@@ -8,6 +8,7 @@ import PersonalDetails from '../Investor/personalDetails'
 import LoanDetails from './LoanDetails'
 import IdentificationsDetails from './IdentificationsDetails'
 import EmployementDetails from './EmployementDetails'
+import {Link } from 'react-router-dom'
 
 const Borrower = () => {
   const [activeStep, setActiveStep] = useState(0)
@@ -87,7 +88,7 @@ const Borrower = () => {
 
       <div className='absolute bottom-0 left-0'>
         <img
-          className='w-[546px] h-[493px]'
+          className='w-[450px] h-[300px]'
           src='imgs/investorForm.png'
           alt='moneyImag'
         />
@@ -96,16 +97,17 @@ const Borrower = () => {
         <Grid container spacing={2}>
           <Grid className='mt-[132px]' item xs={5}>
             <div className='absolute top-0 right-0 left-0'></div>
-            <div>
-              <KeyboardArrowLeft />
-              <span className='text-xl font-base'>Become an investor</span>
+            <Link to = "/" ><div>
+              <KeyboardArrowLeft className='mt-[-5px]' />
+              <span className='text-xl font-base'>Become an borrower</span>
             </div>
             <div className='w-[274px] text-[50px] mt-[37px] font-normal leading-[56px]'>
-              Hello investor!
+              Hello borrower!
             </div>
             <p className='mt-[18px] text-[20px] text-[#5D5D70] font-normal w-[259px]'>
               Ready to make your money work for you?
             </p>
+            </Link>
           </Grid>
           <Grid item xs={7}>
             <div className='bg-white rounded-2xl mb-6 px-11 py-6 shadow-md'>

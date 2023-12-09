@@ -8,11 +8,14 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import axios from 'axios'
+import {  useNavigate } from 'react-router-dom';
 
 const KYC = ({ handleNext, handleBack, investorData, setInvestorData }) => {
   const { formState, handleSubmit, control } = useForm({
     mode: 'onBlur',
   })
+
+  const navigate = useNavigate();
 
   const { errors } = formState
 
@@ -46,6 +49,10 @@ const KYC = ({ handleNext, handleBack, investorData, setInvestorData }) => {
         role: 'Lender',
       }
     )
+    if(resp){
+      navigate('/dashboard')
+    }
+
     console.log(resp)
     // handleNext()
   }
@@ -55,10 +62,13 @@ const KYC = ({ handleNext, handleBack, investorData, setInvestorData }) => {
       onSubmit={handleSubmit(onSubmit)}
       className='flex flex-col'
     >
-      <Typography variant='h3' className='text-center font-bold mb-4'>
-        KYC
-      </Typography>
-      <Box className='flex flex-col gap-4'>
+     <div
+        variant='h3'
+        className='text-left capitalize text-[20px] mt-[46px]  font-light text-[#35354D] font-[roboto] mb-4'
+      >
+       Kyc
+      </div>
+      <Box className='flex mt-[34px] flex-col gap-4'>
         <Box>
           <Controller
             control={control}
