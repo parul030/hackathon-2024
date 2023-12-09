@@ -21,7 +21,7 @@ const KYC = ({ handleNext, handleBack, investorData, setInvestorData }) => {
 
   const onSubmit = async (data) => {
     console.log(data)
-    debugger
+    
     let newData = {}
     if (investorData) {
       newData = { ...investorData }

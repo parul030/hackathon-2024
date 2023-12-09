@@ -6,6 +6,8 @@ import CustomizedSlider from '../Common/slider'
 import { currencyFormat } from '../Utils'
 import OvalOptions from '../Common/ovalOptions'
 import SquareOptions from '../Common/squareOptions'
+import dayjs from 'dayjs'
+import axios from 'axios'
 
 const loanPurposes = [
   { label: 'credit card refinancing' },
@@ -34,24 +36,44 @@ const LoanDetails = ({
   const [tenure, setTenure] = useState()
   const [loanPurpose, setLoanPurpose] = useState()
 
-  const { errors } = formState
-
   const getAgeArray = () => {
     return [...Array(30)].map((item, i) => {
       return { label: i + 1 }
     })
   }
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data)
+    
     let newData = {}
     if (investorData) {
       newData = { ...investorData }
     }
-    newData = { ...newData, loanDetails: { ...data, tenure, loanPurposes } }
+    newData = { ...newData, loanDetails: { ...data, tenure, loanPurpose } }
     setInvestorData(newData)
+    const resp = await axios.post(
+      `https://finease-b5044a79ab8d.herokuapp.com/api/v1/borrower/loan`,
+      {
+        borrower_member_id: localStorage.getItem('memberId'),
+        loan_amount: newData.loanDetails.loanValue,
+        loan_purpose: `${newData.loanDetails.loanPurposes}`,
+        loan_tenure: `${tenure}`,
+        risk_type: resolveRiskType(loanValue),
+      }
+    )
+    console.log(resp)
 
-    handleNext()
+    // handleNext()
+  }
+
+  const resolveRiskType = (loan) => {
+    if (loan < 500000) {
+      return 'Conservative'
+    } else if (loan < 1000000) {
+      return 'Moderate'
+    } else {
+      return 'Aggresive'
+    }
   }
   return (
     <Box

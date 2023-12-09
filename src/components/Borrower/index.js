@@ -111,7 +111,7 @@ const Borrower = () => {
           </Grid>
           <Grid item xs={7}>
             <div className='bg-white rounded-2xl mb-6 px-11 py-6 shadow-md'>
-              <CustomizedSteppers count={5} activeStep={activeStep} />
+              <CustomizedSteppers count={4} activeStep={activeStep} />
               {resolveActiveScreen()}
             </div>
           </Grid>
