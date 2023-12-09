@@ -104,16 +104,6 @@ const KYC = ({ handleNext, handleBack, investorData, setInvestorData }) => {
         <Controller
           control={control}
           name='dob'
-          rules={{
-            required: {
-              value: true,
-              message: 'This field cannot be left blank',
-            },
-            pattern: {
-              value: ValidationRules.emailID,
-              message: 'Please enter the correct EmailId.',
-            },
-          }}
           render={({ field: { value, onChange, onBlur } }) => (
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={['DatePicker', 'DatePicker']}>
