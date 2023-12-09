@@ -13,6 +13,7 @@ const [investment , setInvestment] = useState("")
 const [incomeType , setIncomeType] = useState("")
 const [innerStep, setInnerStep] = useState(0)
 const [fundValue , setFundValue] = useState(0)
+const [investor , setInvestor] = useState(0)
 
 const handleSelect  = (value) =>{
   setRiskType(value)
@@ -31,6 +32,12 @@ const handleSelect  = (value) =>{
  const handleFundValue =(value) =>{
   setFundValue(value)
  }
+
+ const handleInvestorValue =(value) =>{
+  setInvestor(value)
+ }
+
+
 const resolveActiveScreen = () => {
     switch (activeStep) {
       case 0:
@@ -47,7 +54,9 @@ const resolveActiveScreen = () => {
              handleButton = {handleButton}
              incomeType ={incomeType}
              handleFundValue = { handleFundValue}
-             fundValue={fundValue} /></div>
+             fundValue={fundValue}
+             handleInvestorValue={handleInvestorValue}
+             investor={investor} /></div>
         )
       case 2:
         return <div></div>
