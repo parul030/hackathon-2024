@@ -12,7 +12,7 @@ import { CookiesProvider } from "react-cookie";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="investor" element={<Investor />} />
