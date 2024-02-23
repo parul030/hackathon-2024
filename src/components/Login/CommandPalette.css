@@ -1,0 +1,65 @@
+/* CommandPalette.css */
+
+/* Container for the entire command palette */
+/*.command-palette {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    height: 100vh; !* Adjust as needed *!*/
+/*    background-color: #ffffff;*/
+/*    border: 1px solid #e2e8f0;*/
+/*    padding: 20px;*/
+/*}*/
+/*.content {*/
+/*    text-align: center;*/
+/*}*/
+
+/* Logo styling */
+/*.logo {*/
+/*    max-width: 100px;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.lady-and-greeting {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.lady {*/
+/*    max-width: 200px;*/
+/*    margin-right: 20px;*/
+/*}*/
+
+
+/* Greeting text styling */
+/*.greeting {*/
+/*    font-size: 18px;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/* Input field styling */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* Send OTP button styling */
+.send-otp-btn {
+    background-color: #3182ce;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Disabled state for the Send OTP button */
+.send-otp-btn:disabled {
+    background-color: #a0aec0;
+    cursor: not-allowed;
+}

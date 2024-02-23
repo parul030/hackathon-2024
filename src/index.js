@@ -8,6 +8,9 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Borrower from './components/Borrower';
 import { CookiesProvider } from "react-cookie";
+import SignIn from "./components/Login/SignIn";
+import CommandPalette from "./components/Login/CommandPalette";
+import NavBar from "./components/NavBar/NavBar";
 
 
 export default function App() {
@@ -18,7 +21,9 @@ export default function App() {
           <Route path="investor" element={<Investor />} />
           <Route path="borrower" element={<Borrower />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="/" element={<Home />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<CommandPalette />} />
+              <Route path="/nav" element={<NavBar />}>
         
         </Route>
       </Routes>
