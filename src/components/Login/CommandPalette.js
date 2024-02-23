@@ -41,7 +41,7 @@ function CommandPalette() {
             <div className="mt-20">
                 <input
                     type="text"
-                    placeholder="Employee Id"
+                    placeholder="Customer Id/ Mobile No."
                     value={userId}
                     onChange={handleEmployeeIdChange}
                     className="input-field"
