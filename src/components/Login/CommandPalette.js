@@ -25,7 +25,7 @@ function CommandPalette() {
     };
 
     return (<div className="content" style={{ height: "100vh" }}>
-
+   <img src={"imgs/bima.svg"} alt="logo" className="w-[79px] h-[70px] ml-[35px]" />
         <div className="rounded-lg">
             <div className="flex justify-center rounded-b-lg">
                 <img src={"imgs/user.png"} alt="Lady Illustration" className="lady" />
