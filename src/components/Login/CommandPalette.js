@@ -37,7 +37,7 @@ function CommandPalette() {
             </div>
         </div>
 
-        <div className="bg-[#F3F4F6] text-center rounded-tl-lg pt-4 px-2 pb-48" style={{ borderRadius: "5rem 0 0 0", height: "" }}>
+        <div className="bg-[#F3F4F6] text-center rounded-tl-lg pt-4 px-2 pb-60" style={{ borderRadius: "5rem 0 0 0", height: "" }}>
             <div className="mt-20">
                 <input
                     type="text"

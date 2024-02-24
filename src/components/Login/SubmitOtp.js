@@ -107,7 +107,7 @@ const SubmitOtp = () => {
               </button>
             </div>
 
-            <div className="mt-52 w-[90%] p-1">
+            <div className="mt-52 w-[98%] p-1">
               <button className="send-otp-btn w-full">Submit</button>
               <ToastContainer />
             </div>
