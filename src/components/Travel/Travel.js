@@ -19,6 +19,9 @@ export default function Travel() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+
+  const [radioButton , setRadioButton] = useState("")
+
   const handleSelected = (value) => {
     if (value === 1) {
       setSelectedOne(true);
@@ -48,6 +51,10 @@ export default function Travel() {
       setNo(true);
     }
   };
+  const radioButnChange = (event) => {
+    setRadioButton(event.target.value);
+  };
+
 
   return (
     <div className="">
@@ -100,21 +107,23 @@ export default function Travel() {
         </div>
       </div>
       <div className="mt-[40px] pt-[30px] border-t border-dashed border-[#000000] mx-[20px]">
-        <p>Total Travel Cost : Rs37343 + 2657 = Rs40000</p>
+        <p className="font-bold text-lg">Total Travel Cost : <span className="text-sm font-medium">₹37343 + 2657 = ₹40000</span></p>
       </div>
-      <div className="border rounded-[1rem] mt-[40px] mx-[20px] py-[10px] px-[20px]">
+      <div className="bg-[#F3F4F6] mt-[20px] pl-[30px]">
+        <Payment radioButnChange  = {radioButnChange } radioButton={radioButton} />
+      </div>
+
+
+      {radioButton === "Funds" ?  <div className="border rounded-[1rem] mt-[40px] mx-[20px] py-[10px] px-[20px]">
         <p className="text-lg font-normal text-[#35354D]">
-          Funds Available :₹2, 000,000
+          Funds to be Utilized:₹40,000
         </p>
         <p className="text-lg font-normal text-[#35354D]">
           Rate of Interest:8%
         </p>
-        <p className="text-lg font-normal text-[#35354D]">EMI:₹2121 </p>
-        <p className="text-lg font-normal text-[#35354D]">Tenure: 10 yrs</p>
-      </div>
-      <div className="bg-[#F3F4F6] mt-[20px] pl-[30px]">
-        <Payment />
-      </div>
+        <p className="text-lg font-normal text-[#35354D]">EMI:₹1253 </p>
+        <p className="text-lg font-normal text-[#35354D]">Tenure: 3 yrs</p>
+      </div> : null}
       <div className="mx-auto ml-[70px] mb-[50px]">
         <button
           onClick={handleOpen}

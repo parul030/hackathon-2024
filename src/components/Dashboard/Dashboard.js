@@ -47,9 +47,10 @@ export default function Dashboard() {
 
   const arrNonSop = [
     {
-      image: "imgs/elder.png",
+      image: "imgs/truePal.png",
       title: "elder",
-    }, {
+    },
+    {
       image: "imgs/food.png",
       title: "food",
     },
@@ -62,7 +63,7 @@ export default function Dashboard() {
       title: "petCare",
     },
     {
-      image: "imgs/food.png",
+      image: "imgs/financial.png",
       title: "food",
     },
 
@@ -78,6 +79,10 @@ export default function Dashboard() {
       image: "imgs/home.png",
       title: "home",
     },
+    {
+        image: "imgs/md.png",
+        title: "md",
+      },
   ];
   return (
     <div className="pb-[50px]">
@@ -91,7 +96,7 @@ export default function Dashboard() {
         </div>
         <div className="flex mt-[20px]">
           <div className="w-[88px] h-[30px]">
-            <img src={"imgs/mumbai.png"} alt="mumbai" />
+            <img src={"imgs/delhi.png"} alt="mumbai" />
           </div>
           <div className="w-[120px] h-[30px] ml-[10px]">
             <img src={"imgs/BBCoin.png"} alt="bbcoin" />
@@ -108,7 +113,7 @@ export default function Dashboard() {
         </div>
         <div>
           <p className="text-[#35354D] mt-[30px] text-[24px] font-normal">
-            Hello! Parul,
+            Hello Saheli!
           </p>
           <p className="text-base font-normal">How can I help you today?</p>
         </div>
@@ -193,8 +198,12 @@ export default function Dashboard() {
 
       {openBox ? (
         <div className="border rounded-[1rem] mt-[40px] mx-[20px] py-[10px] px-[20px]">
-          <p className="text-lg font-normal text-[#35354D]">Funds Available :₹2, 000,000</p>
-          <p className="text-lg font-normal text-[#35354D]">Rate of Interest:8%</p>
+          <p className="text-lg font-normal text-[#35354D]">
+            Funds Available :₹2,00,000
+          </p>
+          <p className="text-lg font-normal text-[#35354D]">
+            Rate of Interest:8%
+          </p>
           <p className="text-lg font-normal text-[#35354D]">EMI:₹2121 </p>
           <p className="text-lg font-normal text-[#35354D]">Tenure: 10 yrs</p>
         </div>
