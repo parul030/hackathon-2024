@@ -76,7 +76,7 @@ const SubmitOtp = () => {
                     <MuiOtpInput value={otp} onChange={setOtp} />
                 </label>
                 <div>
-                    <span>{timeLeft < 10 ? `0${timeLeft}` : timeLeft}</span>
+                    <span>{timeLeft < 10 ? `0${timeLeft}` : timeLeft} secs remaining</span>
                     <button type="button" onClick={handleResendClick} className="fixed bottom-10 w-full">Resend OTP</button>
                 </div>
 

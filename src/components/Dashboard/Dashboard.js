@@ -47,6 +47,9 @@ export default function Dashboard() {
 
   const arrNonSop = [
     {
+      image: "imgs/elder.png",
+      title: "elder",
+    }, {
       image: "imgs/food.png",
       title: "food",
     },
@@ -62,10 +65,7 @@ export default function Dashboard() {
       image: "imgs/food.png",
       title: "food",
     },
-    {
-      image: "imgs/elder.png",
-      title: "elder",
-    },
+
     {
       image: "imgs/preSchool.png",
       title: "preSchool",
@@ -108,13 +108,13 @@ export default function Dashboard() {
         </div>
         <div>
           <p className="text-[#35354D] mt-[30px] text-[24px] font-normal">
-            Hello! Parul
+            Hello! Parul,
           </p>
           <p className="text-base font-normal">How can I help you today?</p>
         </div>
       </div>
       <p className="text-[#1089D9] text-xl font-medium text-center mt-10">
-        Providing Convience & Peace of mind
+        Providing Convenience & Peace of mind
       </p>
       <div className="mt-[50px] flex justify-center  mx-auto text-center">
         <div>
