@@ -24,7 +24,7 @@ export default function Dashboard() {
       title: "fund",
     },
     {
-      image: "imgs/travelWith.png",
+      image: "imgs/emergancyTravel.png",
       title: "travel",
     },
     {
@@ -72,11 +72,11 @@ export default function Dashboard() {
       title: "preSchool",
     },
     {
-      image: "imgs/travel.png",
+      image: "imgs/travell.png",
       title: "travel",
     },
     {
-      image: "imgs/home.png",
+      image: "imgs/relocation.png",
       title: "home",
     },
     {
@@ -94,7 +94,7 @@ export default function Dashboard() {
         <div>
           <img src={"imgs/bima.svg"} alt="logo" className="w-[79px] h-[70px]" />
         </div>
-        <div className="flex mt-[20px]">
+        <div className="flex mt-[20px] mr-[20px]">
           <div className="w-[88px] h-[30px]">
             <img src={"imgs/delhi.png"} alt="mumbai" />
           </div>
@@ -181,7 +181,7 @@ export default function Dashboard() {
       ) : null}
 
       {secondToggle ? (
-        <div className="mt-[23px] flex flex-wrap gap-x-3 ml-[20px] px-[10px] gap-y-5">
+        <div className="mt-[23px] pb-20 flex flex-wrap gap-x-3 ml-[20px] px-[10px] gap-y-5">
           {arrNonSop.map((item, index) => {
             return (
               <div onClick={() => handleRedirection(item.title)}>
@@ -199,12 +199,12 @@ export default function Dashboard() {
       {openBox ? (
         <div className="border rounded-[1rem] mt-[40px] mx-[20px] py-[10px] px-[20px]">
           <p className="text-lg font-normal text-[#35354D]">
-            Funds Available :₹2,00,000
+            Funds Available: ₹2,00,000
           </p>
           <p className="text-lg font-normal text-[#35354D]">
-            Rate of Interest:8%
+            Rate of Interest: 8%
           </p>
-          <p className="text-lg font-normal text-[#35354D]">EMI:₹2121 </p>
+          <p className="text-lg font-normal text-[#35354D]">EMI: ₹2121 </p>
           <p className="text-lg font-normal text-[#35354D]">Tenure: 10 yrs</p>
         </div>
       ) : null}

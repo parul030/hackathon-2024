@@ -24,12 +24,12 @@ function CommandPalette() {
         }, 2000);
     };
 
-    return (<div className="content" style={{ height: "100vh" }}>
-   <img src={"imgs/bima.svg"} alt="logo" className="w-[79px] h-[70px] ml-[35px]" />
+    return (<div className="">
         <div className="rounded-lg">
             <div className="flex justify-center rounded-b-lg">
                 <img src={"imgs/user.png"} alt="Lady Illustration" className="lady" />
-                <p className="greeting text-left mt-40 mr-5">
+                <p className="greeting text-left mt-10 mr-5">
+                <img src={"imgs/bima.svg"} alt="logo" className="w-[79px] h-[70px]" />
                     <p className="text-lg text-27">Hello!</p>
                     <p className="text-sm font-normal text-">Welcome to <span
                         className="text-red-500">BIMA</span><span className="text-blue-600"> Bandu</span></p>
@@ -37,7 +37,7 @@ function CommandPalette() {
             </div>
         </div>
 
-        <div className="bg-[#F3F4F6] text-center rounded-tl-lg p-4" style={{ borderRadius: "5rem 0 0 0", height: "100vh" }}>
+        <div className="bg-[#F3F4F6] text-center rounded-tl-lg pt-4 px-2 pb-48" style={{ borderRadius: "5rem 0 0 0", height: "" }}>
             <div className="mt-20">
                 <input
                     type="text"
@@ -48,8 +48,8 @@ function CommandPalette() {
                 />
             </div>
 
-            <div className="fixed bottom-10 w-[92%] p-1">
-                <button onClick={handleSendOtp} disabled={otpSent} className="send-otp-btn w-full">
+            <div className=" mt-52 w-[98%] p-1">
+                <button onClick={handleSendOtp} disabled={otpSent} className="send-otp-btn py-3 w-full">
                     {otpSent ? 'OTP Sent' : 'Send OTP'}
                 </button>
             </div>
